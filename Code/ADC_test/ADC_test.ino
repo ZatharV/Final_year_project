@@ -12,7 +12,7 @@ void setup() {
 
 void loop() {
   PT1000 = ADS.toVoltage(ADS.readADC(0));
-  Serial.printf("PT1000 ADC voltage \t= %f and temperature \t= %f*C \n", PT1000, (338.38 * (PT1000 - 0.539) - 13) / 385 * 100);
+  Serial.printf("PT1000 ADC voltage \t= %f and temperature \t= %f*C \n", PT1000, (329.537 * PT1000 - 207.935) / 385 * 100);
 
   HCPV = ADS.toVoltage(ADS.readADC(1));
   Serial.printf("HCPV ADC voltage \t= %f and Humidity \t= %f%% \n", HCPV, HCPV * (2.7 / 1.5 - 0.330) * 23.1729 + 10);
