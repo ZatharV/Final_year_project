@@ -15,7 +15,7 @@ void loop() {
   Serial.printf("PT1000 ADC voltage \t= %f and temperature \t= %f*C \n", PT1000, (329.537 * PT1000 - 207.935) / 385 * 100);
 
   HCPV = ADS.toVoltage(ADS.readADC(1));
-  Serial.printf("HCPV ADC voltage \t= %f and Humidity \t= %f%% \n", HCPV, HCPV * (2.7 / 1.5 - 0.330) * 23.1729 + 10);
+  Serial.printf("HCPV ADC voltage \t= %f and Humidity \t= %f%% \n", HCPV, (HCPV * 2.7 / 1.5 - 0.330) * 30.30303 + 10);
 
   batteryLevel = ADS.toVoltage(ADS.readADC(2));
   Serial.printf("Battery ADC voltage \t= %f and Battery Voltage = %f%% \n", batteryLevel, (((133.21 * batteryLevel) + 1491.05) / 32830.21) * 241);
