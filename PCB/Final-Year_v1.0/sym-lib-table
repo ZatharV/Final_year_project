@@ -1,0 +1,5 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "ADS1115_module")(type "KiCad")(uri "${KIPRJMOD}/Libraries/ADS1115/ADS1115_module.kicad_sym")(options "")(descr ""))
+  (lib (name "ESP32-DEVKIT-V1")(type "KiCad")(uri "${KIPRJMOD}/Libraries/ESP32/ESP32-DEVKIT-V1.kicad_sym")(options "")(descr ""))
+)
