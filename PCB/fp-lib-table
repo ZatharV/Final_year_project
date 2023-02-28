@@ -1,0 +1,5 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "ESP32")(type "KiCad")(uri "${KIPRJMOD}/Libraries/ESP32")(options "")(descr ""))
+  (lib (name "ADS1115")(type "KiCad")(uri "${KIPRJMOD}/Libraries/ADS1115")(options "")(descr ""))
+)
