@@ -1,5 +1,14 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "ads1115.h"
+#include "esp_log.h"
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+// #include "esp_adc/adc_continuous.h"
+// #include "esp_adc/adc_cali.h"
+// #include "esp_adc/adc_cali_scheme.h"
+#include "driver/adc.h"
+#include "esp_adc_cal.h"
 
 #define I2C_MASTER_NUM              0
 #define I2C_MASTER_SCL_IO           22      
@@ -14,7 +23,10 @@
 #define ADS1115_SLAVE_ADDR                 0x48    
 
 int16_t value;
-static const char *TAG = "i2c-simple-example";
+// static const char *TAG = "i2c-simple-example";
+
+static const char *TAG = "ADC EXAMPLE";
+static esp_adc_cal_characteristics_t adc1_chars;
 
 static esp_err_t i2c_master_init(void)
 {
@@ -49,9 +61,20 @@ void app_main(void)
     ads1115_set_mode(&ads, ADS1115_MODE_CONTINUOUS); 
     ads1115_set_sps(&ads, ADS1115_SPS_128); 
     ads1115_set_max_ticks(&ads, 1000); 
-
-
     ESP_LOGI(TAG, "I2C successfully");
+
+    uint32_t voltage;
+    esp_adc_cal_characterize(ADC_UNIT_1, ADC_ATTEN_DB_2_5, ADC_WIDTH_BIT_DEFAULT, 0, &adc1_chars);
+    ESP_ERROR_CHECK(adc1_config_width(ADC_WIDTH_BIT_DEFAULT));
+    ESP_ERROR_CHECK(adc1_config_channel_atten(ADC1_CHANNEL_6, ADC_ATTEN_DB_11));
+    while (1) 
+    {
+        voltage = esp_adc_cal_raw_to_voltage(adc1_get_raw(ADC1_CHANNEL_6), &adc1_chars);
+        ESP_LOGI(TAG, "ADC1_CHANNEL_6: %u mV", (unsigned int)voltage);
+        vTaskDelay(pdMS_TO_TICKS(5000));
+
+    }
+
 
     while (1)
     {

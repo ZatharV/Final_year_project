@@ -1817,3 +1817,120 @@
 34	209	7001635474166901	D:/nipun prev laptop/final_year/idf_files/ads_read/build/bootloader/bootloader.map	95e79f5cd36cadc5
 209	5890	0	CMakeFiles/flash	c25ce5e9538644ae
 209	5890	0	D:/nipun prev laptop/final_year/idf_files/ads_read/build/CMakeFiles/flash	c25ce5e9538644ae
+198	574	7002402847548063	esp-idf/ads1115/CMakeFiles/__idf_ads1115.dir/ads1115.c.obj	d25dd8ac07e03902
+181	709	7001635474166901	bootloader-prefix/src/bootloader-stamp/bootloader-build	95e79f5cd36cadc5
+181	709	7001635474166901	bootloader/bootloader.elf	95e79f5cd36cadc5
+181	709	7001635474166901	bootloader/bootloader.bin	95e79f5cd36cadc5
+181	709	7001635474166901	bootloader/bootloader.map	95e79f5cd36cadc5
+181	709	7001635474166901	D:/nipun prev laptop/final_year/idf_files/ads_read/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	95e79f5cd36cadc5
+181	709	7001635474166901	D:/nipun prev laptop/final_year/idf_files/ads_read/build/bootloader/bootloader.elf	95e79f5cd36cadc5
+181	709	7001635474166901	D:/nipun prev laptop/final_year/idf_files/ads_read/build/bootloader/bootloader.bin	95e79f5cd36cadc5
+181	709	7001635474166901	D:/nipun prev laptop/final_year/idf_files/ads_read/build/bootloader/bootloader.map	95e79f5cd36cadc5
+574	827	7002402850116297	esp-idf/ads1115/libads1115.a	f87a04b0d8458e4d
+51	643	7001635474166901	bootloader-prefix/src/bootloader-stamp/bootloader-build	95e79f5cd36cadc5
+51	643	7001635474166901	bootloader/bootloader.elf	95e79f5cd36cadc5
+51	643	7001635474166901	bootloader/bootloader.bin	95e79f5cd36cadc5
+51	643	7001635474166901	bootloader/bootloader.map	95e79f5cd36cadc5
+51	643	7001635474166901	D:/nipun prev laptop/final_year/idf_files/ads_read/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	95e79f5cd36cadc5
+51	643	7001635474166901	D:/nipun prev laptop/final_year/idf_files/ads_read/build/bootloader/bootloader.elf	95e79f5cd36cadc5
+51	643	7001635474166901	D:/nipun prev laptop/final_year/idf_files/ads_read/build/bootloader/bootloader.bin	95e79f5cd36cadc5
+51	643	7001635474166901	D:/nipun prev laptop/final_year/idf_files/ads_read/build/bootloader/bootloader.map	95e79f5cd36cadc5
+33	260	7001635474166901	bootloader-prefix/src/bootloader-stamp/bootloader-build	95e79f5cd36cadc5
+33	260	7001635474166901	bootloader/bootloader.elf	95e79f5cd36cadc5
+33	260	7001635474166901	bootloader/bootloader.bin	95e79f5cd36cadc5
+33	260	7001635474166901	bootloader/bootloader.map	95e79f5cd36cadc5
+33	260	7001635474166901	D:/nipun prev laptop/final_year/idf_files/ads_read/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	95e79f5cd36cadc5
+33	260	7001635474166901	D:/nipun prev laptop/final_year/idf_files/ads_read/build/bootloader/bootloader.elf	95e79f5cd36cadc5
+33	260	7001635474166901	D:/nipun prev laptop/final_year/idf_files/ads_read/build/bootloader/bootloader.bin	95e79f5cd36cadc5
+33	260	7001635474166901	D:/nipun prev laptop/final_year/idf_files/ads_read/build/bootloader/bootloader.map	95e79f5cd36cadc5
+42	221	7001635474166901	bootloader-prefix/src/bootloader-stamp/bootloader-build	95e79f5cd36cadc5
+42	221	7001635474166901	bootloader/bootloader.elf	95e79f5cd36cadc5
+42	221	7001635474166901	bootloader/bootloader.bin	95e79f5cd36cadc5
+42	221	7001635474166901	bootloader/bootloader.map	95e79f5cd36cadc5
+42	221	7001635474166901	D:/nipun prev laptop/final_year/idf_files/ads_read/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	95e79f5cd36cadc5
+42	221	7001635474166901	D:/nipun prev laptop/final_year/idf_files/ads_read/build/bootloader/bootloader.elf	95e79f5cd36cadc5
+42	221	7001635474166901	D:/nipun prev laptop/final_year/idf_files/ads_read/build/bootloader/bootloader.bin	95e79f5cd36cadc5
+42	221	7001635474166901	D:/nipun prev laptop/final_year/idf_files/ads_read/build/bootloader/bootloader.map	95e79f5cd36cadc5
+38	240	7001635474166901	bootloader-prefix/src/bootloader-stamp/bootloader-build	95e79f5cd36cadc5
+38	240	7001635474166901	bootloader/bootloader.elf	95e79f5cd36cadc5
+38	240	7001635474166901	bootloader/bootloader.bin	95e79f5cd36cadc5
+38	240	7001635474166901	bootloader/bootloader.map	95e79f5cd36cadc5
+38	240	7001635474166901	D:/nipun prev laptop/final_year/idf_files/ads_read/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	95e79f5cd36cadc5
+38	240	7001635474166901	D:/nipun prev laptop/final_year/idf_files/ads_read/build/bootloader/bootloader.elf	95e79f5cd36cadc5
+38	240	7001635474166901	D:/nipun prev laptop/final_year/idf_files/ads_read/build/bootloader/bootloader.bin	95e79f5cd36cadc5
+38	240	7001635474166901	D:/nipun prev laptop/final_year/idf_files/ads_read/build/bootloader/bootloader.map	95e79f5cd36cadc5
+44	605	7002406183967829	esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj	1f1a480ca58a21f3
+605	674	7002406184748539	esp-idf/main/libmain.a	b50d94c6a43d27fa
+674	3858	7002406216364083	esp-idf/esp_system/ld/sections.ld	c619e243e1c7c674
+674	3858	7002406216364083	D:/nipun prev laptop/final_year/idf_files/ads_read/build/esp-idf/esp_system/ld/sections.ld	c619e243e1c7c674
+3858	4677	7002406224545976	ads_read.elf	cdf72b5e045b9c1e
+4677	4938	7002406227422304	.bin_timestamp	f2fd998c013587d6
+4677	4938	7002406227422304	D:/nipun prev laptop/final_year/idf_files/ads_read/build/.bin_timestamp	f2fd998c013587d6
+4938	5032	0	esp-idf/esptool_py/CMakeFiles/app_check_size	928e453db562684f
+4938	5032	0	D:/nipun prev laptop/final_year/idf_files/ads_read/build/esp-idf/esptool_py/CMakeFiles/app_check_size	928e453db562684f
+48	168	0	esp-idf/esptool_py/CMakeFiles/app_check_size	928e453db562684f
+48	168	0	D:/nipun prev laptop/final_year/idf_files/ads_read/build/esp-idf/esptool_py/CMakeFiles/app_check_size	928e453db562684f
+34	265	7001635474166901	bootloader-prefix/src/bootloader-stamp/bootloader-build	95e79f5cd36cadc5
+34	265	7001635474166901	bootloader/bootloader.elf	95e79f5cd36cadc5
+34	265	7001635474166901	bootloader/bootloader.bin	95e79f5cd36cadc5
+34	265	7001635474166901	bootloader/bootloader.map	95e79f5cd36cadc5
+34	265	7001635474166901	D:/nipun prev laptop/final_year/idf_files/ads_read/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	95e79f5cd36cadc5
+34	265	7001635474166901	D:/nipun prev laptop/final_year/idf_files/ads_read/build/bootloader/bootloader.elf	95e79f5cd36cadc5
+34	265	7001635474166901	D:/nipun prev laptop/final_year/idf_files/ads_read/build/bootloader/bootloader.bin	95e79f5cd36cadc5
+34	265	7001635474166901	D:/nipun prev laptop/final_year/idf_files/ads_read/build/bootloader/bootloader.map	95e79f5cd36cadc5
+266	5989	0	CMakeFiles/flash	c25ce5e9538644ae
+266	5989	0	D:/nipun prev laptop/final_year/idf_files/ads_read/build/CMakeFiles/flash	c25ce5e9538644ae
+44	239	7001635474166901	bootloader-prefix/src/bootloader-stamp/bootloader-build	95e79f5cd36cadc5
+44	239	7001635474166901	bootloader/bootloader.elf	95e79f5cd36cadc5
+44	239	7001635474166901	bootloader/bootloader.bin	95e79f5cd36cadc5
+44	239	7001635474166901	bootloader/bootloader.map	95e79f5cd36cadc5
+44	239	7001635474166901	D:/nipun prev laptop/final_year/idf_files/ads_read/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	95e79f5cd36cadc5
+44	239	7001635474166901	D:/nipun prev laptop/final_year/idf_files/ads_read/build/bootloader/bootloader.elf	95e79f5cd36cadc5
+44	239	7001635474166901	D:/nipun prev laptop/final_year/idf_files/ads_read/build/bootloader/bootloader.bin	95e79f5cd36cadc5
+44	239	7001635474166901	D:/nipun prev laptop/final_year/idf_files/ads_read/build/bootloader/bootloader.map	95e79f5cd36cadc5
+50	614	7002408854146802	esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj	1f1a480ca58a21f3
+614	696	7002408855084314	esp-idf/main/libmain.a	b50d94c6a43d27fa
+697	3822	7002408886031540	esp-idf/esp_system/ld/sections.ld	c619e243e1c7c674
+697	3822	7002408886031540	D:/nipun prev laptop/final_year/idf_files/ads_read/build/esp-idf/esp_system/ld/sections.ld	c619e243e1c7c674
+3823	4588	7002408893770843	ads_read.elf	cdf72b5e045b9c1e
+4588	4858	7002408896703021	.bin_timestamp	f2fd998c013587d6
+4588	4858	7002408896703021	D:/nipun prev laptop/final_year/idf_files/ads_read/build/.bin_timestamp	f2fd998c013587d6
+4859	4964	0	esp-idf/esptool_py/CMakeFiles/app_check_size	928e453db562684f
+4859	4964	0	D:/nipun prev laptop/final_year/idf_files/ads_read/build/esp-idf/esptool_py/CMakeFiles/app_check_size	928e453db562684f
+41	240	7001635474166901	bootloader-prefix/src/bootloader-stamp/bootloader-build	95e79f5cd36cadc5
+41	240	7001635474166901	bootloader/bootloader.elf	95e79f5cd36cadc5
+41	240	7001635474166901	bootloader/bootloader.bin	95e79f5cd36cadc5
+41	240	7001635474166901	bootloader/bootloader.map	95e79f5cd36cadc5
+41	240	7001635474166901	D:/nipun prev laptop/final_year/idf_files/ads_read/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	95e79f5cd36cadc5
+41	240	7001635474166901	D:/nipun prev laptop/final_year/idf_files/ads_read/build/bootloader/bootloader.elf	95e79f5cd36cadc5
+41	240	7001635474166901	D:/nipun prev laptop/final_year/idf_files/ads_read/build/bootloader/bootloader.bin	95e79f5cd36cadc5
+41	240	7001635474166901	D:/nipun prev laptop/final_year/idf_files/ads_read/build/bootloader/bootloader.map	95e79f5cd36cadc5
+51	264	7001635474166901	bootloader-prefix/src/bootloader-stamp/bootloader-build	95e79f5cd36cadc5
+51	264	7001635474166901	bootloader/bootloader.elf	95e79f5cd36cadc5
+51	264	7001635474166901	bootloader/bootloader.bin	95e79f5cd36cadc5
+51	264	7001635474166901	bootloader/bootloader.map	95e79f5cd36cadc5
+51	264	7001635474166901	D:/nipun prev laptop/final_year/idf_files/ads_read/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	95e79f5cd36cadc5
+51	264	7001635474166901	D:/nipun prev laptop/final_year/idf_files/ads_read/build/bootloader/bootloader.elf	95e79f5cd36cadc5
+51	264	7001635474166901	D:/nipun prev laptop/final_year/idf_files/ads_read/build/bootloader/bootloader.bin	95e79f5cd36cadc5
+51	264	7001635474166901	D:/nipun prev laptop/final_year/idf_files/ads_read/build/bootloader/bootloader.map	95e79f5cd36cadc5
+60	712	7002413584107758	esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj	1f1a480ca58a21f3
+712	801	7002413585135020	esp-idf/main/libmain.a	b50d94c6a43d27fa
+801	4031	7002413616969887	esp-idf/esp_system/ld/sections.ld	c619e243e1c7c674
+801	4031	7002413616969887	D:/nipun prev laptop/final_year/idf_files/ads_read/build/esp-idf/esp_system/ld/sections.ld	c619e243e1c7c674
+4031	4784	7002413624739110	ads_read.elf	cdf72b5e045b9c1e
+4784	5015	7002413627272346	.bin_timestamp	f2fd998c013587d6
+4784	5015	7002413627272346	D:/nipun prev laptop/final_year/idf_files/ads_read/build/.bin_timestamp	f2fd998c013587d6
+5015	5137	0	esp-idf/esptool_py/CMakeFiles/app_check_size	928e453db562684f
+5015	5137	0	D:/nipun prev laptop/final_year/idf_files/ads_read/build/esp-idf/esptool_py/CMakeFiles/app_check_size	928e453db562684f
+36	146	0	esp-idf/esptool_py/CMakeFiles/app_check_size	928e453db562684f
+36	146	0	D:/nipun prev laptop/final_year/idf_files/ads_read/build/esp-idf/esptool_py/CMakeFiles/app_check_size	928e453db562684f
+31	243	7001635474166901	bootloader-prefix/src/bootloader-stamp/bootloader-build	95e79f5cd36cadc5
+31	243	7001635474166901	bootloader/bootloader.elf	95e79f5cd36cadc5
+31	243	7001635474166901	bootloader/bootloader.bin	95e79f5cd36cadc5
+31	243	7001635474166901	bootloader/bootloader.map	95e79f5cd36cadc5
+31	243	7001635474166901	D:/nipun prev laptop/final_year/idf_files/ads_read/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	95e79f5cd36cadc5
+31	243	7001635474166901	D:/nipun prev laptop/final_year/idf_files/ads_read/build/bootloader/bootloader.elf	95e79f5cd36cadc5
+31	243	7001635474166901	D:/nipun prev laptop/final_year/idf_files/ads_read/build/bootloader/bootloader.bin	95e79f5cd36cadc5
+31	243	7001635474166901	D:/nipun prev laptop/final_year/idf_files/ads_read/build/bootloader/bootloader.map	95e79f5cd36cadc5
+244	5924	0	CMakeFiles/flash	c25ce5e9538644ae
+244	5924	0	D:/nipun prev laptop/final_year/idf_files/ads_read/build/CMakeFiles/flash	c25ce5e9538644ae
