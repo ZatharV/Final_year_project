@@ -1,30 +1,60 @@
 #include <stdio.h>
-#include "esp_log.h"
-#include "driver/i2c.h"
+#include "driver/adc.h"
+#include "esp_adc_cal.h"
+#include "esp_adc/adc_cali.h" 
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
-
-static const char *TAG = "i2c-example";
-#define I2C_SLAVE_ADDR	0x48
-#define TIMEOUT_MS		1000
-#define DELAY_MS		1000
-void app_main() {
-	uint8_t rx_data[5];
-	i2c_config_t conf = {
-		.mode = I2C_MODE_MASTER,
-		.sda_io_num = 21,
-		.scl_io_num = 22,
-		.sda_pullup_en = GPIO_PULLUP_ENABLE,
-		.scl_pullup_en = GPIO_PULLUP_ENABLE,
-		.master.clk_speed = 100000,
-	};
+#include "esp_log.h"
 
 
-	i2c_param_config(I2C_NUM_0, &conf);
-	ESP_ERROR_CHECK(i2c_driver_install(I2C_NUM_0, I2C_MODE_MASTER, 5, 5, 0));
-	while (1) {
-		i2c_master_read_from_device(I2C_NUM_0, I2C_SLAVE_ADDR, rx_data, 5, TIMEOUT_MS/portTICK_PERIOD_MS);
-		ESP_LOG_BUFFER_HEX(TAG, rx_data, 5);
-		vTaskDelay(DELAY_MS/portTICK_PERIOD_MS);
-	}
+#define ADC1_CH4 34
+static const char *TAG = "Battery Voltage";
+static esp_adc_cal_characteristics_t adc_chars; 
+static double voltage;
+static double battery_voltage;
+
+
+static void battery_setup()
+{
+    esp_err_t err;
+    //esp_adc_cal_characteristics_t *adc_chars = calloc(1, sizeof(esp_adc_cal_characteristics_t)); //is the characteristics needed to be static? 
+
+    err = esp_adc_cal_check_efuse(ESP_ADC_CAL_VAL_EFUSE_VREF);
+
+    if (err)
+    {
+        ESP_LOGE(TAG,"The calibration mode is not supported in eFuse: %s",esp_err_to_name(err));
+        esp_adc_cal_characterize(ADC_UNIT_1, ADC_ATTEN_DB_11 , ADC_WIDTH_BIT_12, ESP_ADC_CAL_VAL_DEFAULT_VREF, &adc_chars);
+    }
+    else
+    {
+        esp_adc_cal_characterize(ADC_UNIT_1, ADC_ATTEN_DB_11 , ADC_WIDTH_BIT_12, ESP_ADC_CAL_VAL_EFUSE_VREF, &adc_chars);
+		ESP_LOGE(TAG,"The calibration mode is supported in eFuse ");
+    }
+    // ESP_ERROR_CHECK(adc1_config_width(ADC_WIDTH_BIT_DEFAULT));
+    //ESP_ERROR_CHECK(adc1_config_channel_atten(ADC1_CH4, ADC_ATTEN_DB_11));
+
+}
+
+static void battery_get_voltage_task()
+{
+    while (1) 
+    {
+        voltage = esp_adc_cal_raw_to_voltage(adc1_get_raw(ADC1_CHANNEL_6), &adc_chars);
+        //battery_voltage = (voltage*1538)/562;
+		ESP_LOGI(TAG, "Voltage : %f ", voltage);
+        //ESP_LOGI(TAG, "battery voltage : %f V", battery_voltage);
+        vTaskDelay(pdMS_TO_TICKS(1000));
+
+    }
+}
+
+void battery_init()
+{
+    battery_setup();
+    xTaskCreate((void*)battery_get_voltage_task, "battery get voltage task", 2048, NULL, 4, NULL); //WHAT PRIORITY NNEDED
+}
+
+void app_main(void){
+    battery_init();
 }
