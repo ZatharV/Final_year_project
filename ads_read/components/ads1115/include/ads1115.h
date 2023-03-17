@@ -103,7 +103,7 @@ void ads1115_set_max_ticks(ads1115_t* ads, TickType_t max_ticks); // maximum wai
 
 int16_t ads1115_get_raw(ads1115_t* ads); // get voltage in bits
 double ads1115_get_voltage(ads1115_t* ads); // get voltage in volts
-
+void adc_log(void);
 #endif // ifdef ADS1115_H
 
 #ifdef __cplusplus

@@ -7,7 +7,7 @@
 #include "nvs_flash.h"
 #include "esp_event.h"
 #include "esp_netif.h"
-#include "protocol_examples_common.h"
+// #include "my_data.h"
 
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
@@ -21,100 +21,63 @@
 #include "esp_log.h"
 #include "mqtt_client.h"
 
-static const char *TAG = "MQTT_EXAMPLE";
-#define  EXAMPLE_ESP_WIFI_SSID "YOUR_SSID"
-#define  EXAMPLE_ESP_WIFI_PASS "YOUR_PASSWORD"
- 
-uint32_t MQTT_CONNEECTED = 0;
+static const char *TAG = "MQTT_TCP";
+#define SSID "4g jio"
+#define PASS ""
 
-static void mqtt_app_start(void);
-
-static esp_err_t event_handler(void *ctx, system_event_t *event)
+static void wifi_event_handler(void *event_handler_arg, esp_event_base_t event_base, int32_t event_id, void *event_data)
 {
-    switch (event->event_id)
+    switch (event_id)
     {
-    case SYSTEM_EVENT_STA_START:
-        esp_wifi_connect();
-        ESP_LOGI(TAG, "Trying to connect with Wi-Fi\n");
+    case WIFI_EVENT_STA_START:
+        printf("WiFi connecting ... \n");
         break;
-
-    case SYSTEM_EVENT_STA_CONNECTED:
-        ESP_LOGI(TAG, "Wi-Fi connected\n");
+    case WIFI_EVENT_STA_CONNECTED:
+        printf("WiFi connected ... \n");
         break;
-
-    case SYSTEM_EVENT_STA_GOT_IP:
-        ESP_LOGI(TAG, "got ip: startibg MQTT Client\n");
-        mqtt_app_start();
+    case WIFI_EVENT_STA_DISCONNECTED:
+        printf("WiFi lost connection ... \n");
         break;
-
-    case SYSTEM_EVENT_STA_DISCONNECTED:
-        ESP_LOGI(TAG, "disconnected: Retrying Wi-Fi\n");
-        esp_wifi_connect();
+    case IP_EVENT_STA_GOT_IP:
+        printf("WiFi got IP ... \n\n");
         break;
-
     default:
         break;
     }
-    return ESP_OK;
 }
 
-void wifi_init(void)
+void wifi_connection()
 {
-    ESP_ERROR_CHECK(esp_netif_init());
-
-    ESP_ERROR_CHECK(esp_event_loop_create_default());
-    esp_netif_create_default_wifi_sta();
-
-    wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
-    ESP_ERROR_CHECK(esp_wifi_init(&cfg));
-
-    ESP_ERROR_CHECK(esp_event_loop_init(event_handler, NULL));
-
-    wifi_config_t wifi_config = {
+    
+    esp_netif_init();                    
+    esp_event_loop_create_default();   
+    esp_netif_create_default_wifi_sta(); 
+    wifi_init_config_t wifi_initiation = WIFI_INIT_CONFIG_DEFAULT();
+    esp_wifi_init(&wifi_initiation); 
+    esp_event_handler_register(WIFI_EVENT, ESP_EVENT_ANY_ID, wifi_event_handler, NULL);
+    esp_event_handler_register(IP_EVENT, IP_EVENT_STA_GOT_IP, wifi_event_handler, NULL);
+    wifi_config_t wifi_configuration = {
         .sta = {
-            .ssid = EXAMPLE_ESP_WIFI_SSID,
-            .password = EXAMPLE_ESP_WIFI_PASS,
-	     .threshold.authmode = WIFI_AUTH_WPA2_PSK,
-        },
-    };
-    ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA) );
-    ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_STA, &wifi_config) );
-    ESP_ERROR_CHECK(esp_wifi_start());
+            .ssid = SSID,
+            .password = PASS}};
+    esp_wifi_set_config(ESP_IF_WIFI_STA, &wifi_configuration);
+    esp_wifi_start();
+    esp_wifi_connect();
 }
 
-/*
- * @brief Event handler registered to receive MQTT events
- *
- *  This function is called by the MQTT client event loop.
- *
- * @param handler_args user data registered to the event.
- * @param base Event base for the handler(always MQTT Base in this example).
- * @param event_id The id for the received event.
- * @param event_data The data for the event, esp_mqtt_event_handle_t.
- */
-static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_t event_id, void *event_data)
+static esp_err_t mqtt_event_handler_cb(esp_mqtt_event_handle_t event)
 {
-    ESP_LOGD(TAG, "Event dispatched from event loop base=%s, event_id=%d", base, event_id);
-    esp_mqtt_event_handle_t event = event_data;
     esp_mqtt_client_handle_t client = event->client;
-    int msg_id;
-    switch ((esp_mqtt_event_id_t)event_id)
+    switch (event->event_id)
     {
     case MQTT_EVENT_CONNECTED:
-        ESP_LOGI(TAG, "MQTT_EVENT_CONNECTED");
-        MQTT_CONNEECTED=1;
-        
-        msg_id = esp_mqtt_client_subscribe(client, "/topic/test1", 0);
-        ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
-
-        msg_id = esp_mqtt_client_subscribe(client, "/topic/test2", 1);
-        ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
+        ESP_LOGI(TAG, "MQTT_EVENT_CONNECTED");  //milestone- make a function below this from xtask create that keeps sending data 
+        esp_mqtt_client_subscribe(client, "my_topic", 0);
+        esp_mqtt_client_publish(client, "my_topic", "Hi to all from ESP32 .........", 0, 1, 0);
         break;
     case MQTT_EVENT_DISCONNECTED:
         ESP_LOGI(TAG, "MQTT_EVENT_DISCONNECTED");
-        MQTT_CONNEECTED=0;
         break;
-
     case MQTT_EVENT_SUBSCRIBED:
         ESP_LOGI(TAG, "MQTT_EVENT_SUBSCRIBED, msg_id=%d", event->msg_id);
         break;
@@ -126,7 +89,7 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
         break;
     case MQTT_EVENT_DATA:
         ESP_LOGI(TAG, "MQTT_EVENT_DATA");
-        printf("TOPIC=%.*s\r\n", event->topic_len, event->topic);
+        printf("\nTOPIC=%.*s\r\n", event->topic_len, event->topic);
         printf("DATA=%.*s\r\n", event->data_len, event->data);
         break;
     case MQTT_EVENT_ERROR:
@@ -136,40 +99,33 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
         ESP_LOGI(TAG, "Other event id:%d", event->event_id);
         break;
     }
+    return ESP_OK;
 }
 
-esp_mqtt_client_handle_t client = NULL;
+static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_t event_id, void *event_data)
+{
+    ESP_LOGE(TAG, "Event dispatched from event loop base=%s, event_id=%ld", base, event_id);
+    mqtt_event_handler_cb(event_data);
+}
+
 static void mqtt_app_start(void)
 {
-    ESP_LOGI(TAG, "STARTING MQTT");
-    esp_mqtt_client_config_t mqttConfig = {
-        .uri = "mqtt://192.168.1.4:1883"};
-    
-    client = esp_mqtt_client_init(&mqttConfig);
+    esp_mqtt_client_config_t mqtt_cfg = {
+        .broker.address.uri = "mqtt://broker.hivemq.com",
+    };
+    esp_mqtt_client_handle_t client = esp_mqtt_client_init(&mqtt_cfg);
     esp_mqtt_client_register_event(client, ESP_EVENT_ANY_ID, mqtt_event_handler, client);
     esp_mqtt_client_start(client);
 }
 
-void Publisher_Task(void *params)
-{
-  while (true)
-  {
-    if(MQTT_CONNEECTED)
-    {
-        esp_mqtt_client_publish(client, "/topic/test3", "Helllo World", 0, 0, 0);
-        vTaskDelay(15000 / portTICK_PERIOD_MS);
-    }
-  }
-}
-
 void app_main(void)
 {
-    esp_err_t ret = nvs_flash_init();
-    if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND) {
-      ESP_ERROR_CHECK(nvs_flash_erase());
-      ret = nvs_flash_init();
-    }
-    ESP_ERROR_CHECK(ret);
-    wifi_init();
-    xTaskCreate(Publisher_Task, "Publisher_Task", 1024 * 5, NULL, 5, NULL);
+    nvs_flash_init();
+    wifi_connection();
+
+    vTaskDelay(2000 / portTICK_PERIOD_MS);
+    printf("WIFI was initiated ...........\n");
+
+    mqtt_app_start();
 }
+

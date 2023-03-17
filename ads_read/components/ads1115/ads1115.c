@@ -4,6 +4,27 @@
 #include "freertos/queue.h"
 #include "esp_log.h"
 
+#define I2C_MASTER_NUM              0
+#define I2C_MASTER_SCL_IO           22      
+#define I2C_MASTER_SDA_IO           21     
+#define I2C_MASTER_NUM              0                          
+#define I2C_MASTER_FREQ_HZ          100000                                          
+#define I2C_MASTER_TIMEOUT_MS       1000
+
+#define I2C_MASTER_TX_BUF_DISABLE   0                          
+#define I2C_MASTER_RX_BUF_DISABLE   0                          
+
+#define ADS1115_SLAVE_ADDR                 0x48    
+
+int16_t value1;
+int16_t value2;
+int16_t value3;
+int16_t value4;
+double r1;
+double r2;
+double r3;
+double r4;
+
 static void IRAM_ATTR gpio_isr_handler(void* arg) {
   const bool ret = 1; // dummy value to pass to queue
   xQueueHandle gpio_evt_queue = (xQueueHandle) arg; // find which queue to write
@@ -174,4 +195,101 @@ double ads1115_get_voltage(ads1115_t* ads) {
 
   raw = ads1115_get_raw(ads);
   return (double)raw * fsr[ads->config.bit.PGA] / (double)bits;
+}
+
+static esp_err_t i2c_master_init(void)
+{
+    int i2c_master_port = I2C_MASTER_NUM;
+
+    i2c_config_t conf = {
+        .mode = I2C_MODE_MASTER,
+        .sda_io_num = I2C_MASTER_SDA_IO,
+        .scl_io_num = I2C_MASTER_SCL_IO,
+        .sda_pullup_en = GPIO_PULLUP_DISABLE,
+        .scl_pullup_en = GPIO_PULLUP_DISABLE,
+        .master.clk_speed = I2C_MASTER_FREQ_HZ,
+    };
+
+    i2c_param_config(i2c_master_port, &conf);
+
+    return i2c_driver_install(i2c_master_port, conf.mode, I2C_MASTER_RX_BUF_DISABLE, I2C_MASTER_TX_BUF_DISABLE, 0);
+}
+
+static void adc_init(ads1115_mux_t input_pin)
+{
+    ESP_ERROR_CHECK(i2c_master_init());
+    ESP_LOGI(TAG, "I2C initialized successfully");
+
+    ads1115_t ads1 = ads1115_config(I2C_NUM_0, 0x48);
+    
+    ads1115_set_mux(&ads1, ADS1115_MUX_0_GND);
+    ads1115_set_pga(&ads1,  ADS1115_FSR_2_048); 
+    ads1115_set_mode(&ads1, ADS1115_MODE_CONTINUOUS); 
+    ads1115_set_sps(&ads1, ADS1115_SPS_128); 
+    ads1115_set_max_ticks(&ads1, 1000); 
+
+    ads1115_t ads2 = ads1115_config(I2C_NUM_0, 0x48);
+    
+    ads1115_set_mux(&ads2, ADS1115_MUX_1_GND);
+    ads1115_set_pga(&ads2,  ADS1115_FSR_2_048); 
+    ads1115_set_mode(&ads2, ADS1115_MODE_CONTINUOUS); 
+    ads1115_set_sps(&ads2, ADS1115_SPS_128); 
+    ads1115_set_max_ticks(&ads2, 1000);
+   
+
+    ads1115_t ads3 = ads1115_config(I2C_NUM_0, 0x48);
+    
+    ads1115_set_mux(&ads3, ADS1115_MUX_2_GND);
+    ads1115_set_pga(&ads3,  ADS1115_FSR_2_048); 
+    ads1115_set_mode(&ads3, ADS1115_MODE_CONTINUOUS); 
+    ads1115_set_sps(&ads3, ADS1115_SPS_128); 
+    ads1115_set_max_ticks(&ads3, 1000);
+
+    ads1115_t ads4 = ads1115_config(I2C_NUM_0, 0x48);
+    
+    ads1115_set_mux(&ads4, ADS1115_MUX_3_GND);
+    ads1115_set_pga(&ads4,  ADS1115_FSR_2_048); 
+    ads1115_set_mode(&ads4, ADS1115_MODE_CONTINUOUS); 
+    ads1115_set_sps(&ads4, ADS1115_SPS_128); 
+    ads1115_set_max_ticks(&ads4, 1000);
+    ESP_LOGI(TAG, "Initalization structures");
+}
+
+void adc_log(void)
+{
+  while (1)
+    {
+
+        value1 = ads1115_get_raw(&ads1);
+        ESP_LOGI(TAG, "count  is : %d", value1);
+        double vol1 = ads1115_get_voltage(&ads1);//optimize
+        r1 = NULL //temp formula
+        ESP_LOGI(TAG, "Humidity value  is : %f", vol);
+        vTaskDelay(pdMS_TO_TICKS(5000));
+
+        value2 = ads1115_get_raw(&ads2);
+        ESP_LOGI(TAG, "count  is : %d", value2);
+        double vol2 = ads1115_get_voltage(&ads2);
+        r2 = (vol2 * 2.7 / 1.5 - 0.330) *23.1729 + 10;
+        ESP_LOGI(TAG, "Humidity value  is : %f", r1);
+        vTaskDelay(pdMS_TO_TICKS(5000));
+
+        value3 = ads1115_get_raw(&ads3);
+        ESP_LOGI(TAG, "count  is : %d", value);
+        double vol3 = ads1115_get_voltage(&ads3);//optimize
+        r3 = NULL //battery formula
+        ESP_LOGI(TAG, "Humidity value  is : %f", vol);
+        vTaskDelay(pdMS_TO_TICKS(5000));
+
+        value4 = ads1115_get_raw(&ads4);
+        ESP_LOGI(TAG, "count  is : %d", value);
+        double vol4 = ads1115_get_voltage(&ads4);//optimize
+        r4 = NULL //ldr formula
+        ESP_LOGI(TAG, "Humidity value  is : %f", vol);
+        vTaskDelay(pdMS_TO_TICKS(5000));
+
+
+
+    }
+
 }
