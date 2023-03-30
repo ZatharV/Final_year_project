@@ -25,6 +25,9 @@ double r2;
 double r3;
 double r4;
 
+extern payload_t payload;
+
+
 static void IRAM_ATTR gpio_isr_handler(void* arg) {
   const bool ret = 1; // dummy value to pass to queue
   xQueueHandle gpio_evt_queue = (xQueueHandle) arg; // find which queue to write
@@ -215,7 +218,7 @@ static esp_err_t i2c_master_init(void)
     return i2c_driver_install(i2c_master_port, conf.mode, I2C_MASTER_RX_BUF_DISABLE, I2C_MASTER_TX_BUF_DISABLE, 0);
 }
 
-static void adc_init(ads1115_mux_t input_pin)
+static void adc_setup(ads1115_mux_t input_pin)
 {
     ESP_ERROR_CHECK(i2c_master_init());
     ESP_LOGI(TAG, "I2C initialized successfully");
@@ -255,8 +258,12 @@ static void adc_init(ads1115_mux_t input_pin)
     ESP_LOGI(TAG, "Initalization structures");
 }
 
-void adc_log(void)
+void adc_log(void* pvParameters)
 {
+
+  payload_t* payload = (payload_t*)pvParameters;
+
+
   while (1)
     {
 
@@ -264,6 +271,7 @@ void adc_log(void)
         ESP_LOGI(TAG, "count  is : %d", value1);
         double vol1 = ads1115_get_voltage(&ads1);//optimize
         r1 = NULL //temp formula
+        payload->sensor_data1 = r1;
         ESP_LOGI(TAG, "Humidity value  is : %f", vol);
         vTaskDelay(pdMS_TO_TICKS(5000));
 
@@ -271,6 +279,7 @@ void adc_log(void)
         ESP_LOGI(TAG, "count  is : %d", value2);
         double vol2 = ads1115_get_voltage(&ads2);
         r2 = (vol2 * 2.7 / 1.5 - 0.330) *23.1729 + 10;
+        payload->sensor_data2 = r2;
         ESP_LOGI(TAG, "Humidity value  is : %f", r1);
         vTaskDelay(pdMS_TO_TICKS(5000));
 
@@ -278,6 +287,7 @@ void adc_log(void)
         ESP_LOGI(TAG, "count  is : %d", value);
         double vol3 = ads1115_get_voltage(&ads3);//optimize
         r3 = NULL //battery formula
+        payload->sensor_data3 = r3;
         ESP_LOGI(TAG, "Humidity value  is : %f", vol);
         vTaskDelay(pdMS_TO_TICKS(5000));
 
@@ -285,6 +295,7 @@ void adc_log(void)
         ESP_LOGI(TAG, "count  is : %d", value);
         double vol4 = ads1115_get_voltage(&ads4);//optimize
         r4 = NULL //ldr formula
+        payload->sensor_data4 = r4;
         ESP_LOGI(TAG, "Humidity value  is : %f", vol);
         vTaskDelay(pdMS_TO_TICKS(5000));
 
@@ -292,4 +303,10 @@ void adc_log(void)
 
     }
 
+}
+
+void adc_init(void)
+{
+    adc_setup();
+    xTaskCreate((void*)adc_log, "ads1115 get voltage task", 2048, (void*)&payload, 2, NULL); 
 }
