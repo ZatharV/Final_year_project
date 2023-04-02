@@ -5,5 +5,5 @@ idf_component_register(SRCS "mq2.c"
                        REQUIRES log
                        REQUIRES esp_timer
                        REQUIRES esp_adc
-                       
+                       REQUIRES ads1115
                        )
