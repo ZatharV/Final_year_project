@@ -6,8 +6,6 @@
 #include "esp_log.h"
 #include "mq2.h"
 #include "esp_timer.h"
-#include "esp_adc/adc_continuous.h"
-#include "esp_adc/adc_cali.h"
 #include "ads1115.h"
 
 
@@ -16,7 +14,6 @@
 static const char *TAG = "MQ2";
 static esp_adc_cal_characteristics_t adc_chars; 
 static float voltage;
-// payload_t payload;
 
 
 static void battery_setup()
@@ -44,7 +41,7 @@ static void battery_get_voltage_task(void* pvParameters)
         voltage = (float)esp_adc_cal_raw_to_voltage(adc1_get_raw(ADC1_CHANNEL_6), &adc_chars);
         ((payload_t*)pvParameters)->sensor_data5=voltage;
         ESP_LOGI(TAG,"voltage from mq2 is %.2f", payload.sensor_data5);
-        vTaskDelay(pdMS_TO_TICKS(1000));
+        vTaskDelay(pdMS_TO_TICKS(11000));
     }
 }
 

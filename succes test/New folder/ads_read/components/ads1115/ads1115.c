@@ -3,36 +3,10 @@
 #include "freertos/task.h"
 #include "freertos/queue.h"
 #include "esp_log.h"
-#include "esp_timer.h"
-
-#define I2C_MASTER_NUM              0
-#define I2C_MASTER_SCL_IO           22      
-#define I2C_MASTER_SDA_IO           21     
-#define I2C_MASTER_NUM              0                          
-#define I2C_MASTER_FREQ_HZ          100000                                          
-#define I2C_MASTER_TIMEOUT_MS       1000
-
-#define I2C_MASTER_TX_BUF_DISABLE   0                          
-#define I2C_MASTER_RX_BUF_DISABLE   0                          
-
-#define ADS1115_SLAVE_ADDR                 0x48    
-
-int16_t value1;
-int16_t value2;
-int16_t value3;
-int16_t value4;
-float r1;
-float r2;
-float r3;
-float r4;
-
-static const char* TAG = "ADS1115";
-// payload_t payload;
-payload_t payload;
 
 static void IRAM_ATTR gpio_isr_handler(void* arg) {
   const bool ret = 1; // dummy value to pass to queue
-  xQueueHandle gpio_evt_queue = (QueueHandle_t)arg; // find which queue to write
+  xQueueHandle gpio_evt_queue = (xQueueHandle) arg; // find which queue to write
   xQueueSendFromISR(gpio_evt_queue, &ret, NULL);
 }
 
@@ -160,7 +134,7 @@ int16_t ads1115_get_raw(ads1115_t* ads) {
 
   if(ads->rdy_pin.in_use) {
     gpio_isr_handler_add(ads->rdy_pin.pin, gpio_isr_handler, (void*)ads->rdy_pin.gpio_evt_queue);
-    xQueueReset((QueueHandle_t)ads->rdy_pin.gpio_evt_queue);
+    xQueueReset(ads->rdy_pin.gpio_evt_queue);
   }
   // see if we need to send configuration data
   if((ads->config.bit.MODE==ADS1115_MODE_SINGLE) || (ads->changed)) { // if it's single-ended or a setting changed
@@ -169,7 +143,7 @@ int16_t ads1115_get_raw(ads1115_t* ads) {
       ESP_LOGE(TAG,"could not write to device: %s",esp_err_to_name(err));
       if(ads->rdy_pin.in_use) {
         gpio_isr_handler_remove(ads->rdy_pin.pin);
-        xQueueReset((QueueHandle_t)ads->rdy_pin.gpio_evt_queue);
+        xQueueReset(ads->rdy_pin.gpio_evt_queue);
       }
       return 0;
     }
@@ -177,7 +151,7 @@ int16_t ads1115_get_raw(ads1115_t* ads) {
   }
 
   if(ads->rdy_pin.in_use) {
-    xQueueReceive((QueueHandle_t)ads->rdy_pin.gpio_evt_queue, &tmp, portMAX_DELAY);
+    xQueueReceive(ads->rdy_pin.gpio_evt_queue, &tmp, portMAX_DELAY);
     gpio_isr_handler_remove(ads->rdy_pin.pin);
   }
   else {
@@ -200,115 +174,4 @@ double ads1115_get_voltage(ads1115_t* ads) {
 
   raw = ads1115_get_raw(ads);
   return (double)raw * fsr[ads->config.bit.PGA] / (double)bits;
-}
-
-static esp_err_t i2c_master_init(void)
-{
-    int i2c_master_port = I2C_MASTER_NUM;
-
-    i2c_config_t conf = {
-        .mode = I2C_MODE_MASTER,
-        .sda_io_num = I2C_MASTER_SDA_IO,
-        .scl_io_num = I2C_MASTER_SCL_IO,
-        .sda_pullup_en = GPIO_PULLUP_DISABLE,
-        .scl_pullup_en = GPIO_PULLUP_DISABLE,
-        .master.clk_speed = I2C_MASTER_FREQ_HZ,
-    };
-
-    i2c_param_config(i2c_master_port, &conf);
-
-    return i2c_driver_install(i2c_master_port, conf.mode, I2C_MASTER_RX_BUF_DISABLE, I2C_MASTER_TX_BUF_DISABLE, 0);
-}
-
-
-void adc_log(void* pvParameters)
-{
-
-  // adc_setup();
-  //payload_t* payload = (payload_t*)pvParameters;
-
-  ESP_ERROR_CHECK(i2c_master_init());
-  ESP_LOGI(TAG, "I2C initialized successfully");
-
-  ads1115_t ads1 = ads1115_config(I2C_NUM_0, 0x48);
-  
-  ads1115_set_mux(&ads1, ADS1115_MUX_0_GND);
-  ads1115_set_pga(&ads1,  ADS1115_FSR_2_048); 
-  ads1115_set_mode(&ads1, ADS1115_MODE_CONTINUOUS);     
-  ads1115_set_sps(&ads1, ADS1115_SPS_128); 
-  ads1115_set_max_ticks(&ads1, 1000); 
-
-  ads1115_t ads2 = ads1115_config(I2C_NUM_0, 0x48);
-  
-  ads1115_set_mux(&ads2, ADS1115_MUX_1_GND);
-  ads1115_set_pga(&ads2,  ADS1115_FSR_2_048); 
-  ads1115_set_mode(&ads2, ADS1115_MODE_CONTINUOUS); 
-  ads1115_set_sps(&ads2, ADS1115_SPS_128); 
-  ads1115_set_max_ticks(&ads2, 1000);
-
-
-  ads1115_t ads3 = ads1115_config(I2C_NUM_0, 0x48);
-  
-  ads1115_set_mux(&ads3, ADS1115_MUX_2_GND);
-  ads1115_set_pga(&ads3,  ADS1115_FSR_2_048); 
-  ads1115_set_mode(&ads3, ADS1115_MODE_CONTINUOUS); 
-  ads1115_set_sps(&ads3, ADS1115_SPS_128); 
-  ads1115_set_max_ticks(&ads3, 1000);
-
-  ads1115_t ads4 = ads1115_config(I2C_NUM_0, 0x48);
-  
-  ads1115_set_mux(&ads4, ADS1115_MUX_3_GND);
-  ads1115_set_pga(&ads4,  ADS1115_FSR_2_048); 
-  ads1115_set_mode(&ads4, ADS1115_MODE_CONTINUOUS); 
-  ads1115_set_sps(&ads4, ADS1115_SPS_128); 
-  ads1115_set_max_ticks(&ads4, 1000);
-
-  ESP_LOGI(TAG, "Initalization structures completed");
-
-
-  while (1)
-    {
-
-        value1 = ads1115_get_raw(&ads1);
-        ESP_LOGI(TAG, "count  is : %d", value1);
-        float vol1 = ads1115_get_voltage(&ads1);
-        ESP_LOGI(TAG, "voltage  is : %f", vol1);
-        r1 = (338.38 * (vol1 - 0.539) - 13) / 385 * 100;
-        ((payload_t*)pvParameters)->sensor_data1 = r1;
-        ESP_LOGI(TAG, "Temperature value  is : %f", r1);
-        vTaskDelay(pdMS_TO_TICKS(500));
-
-        value2 = ads1115_get_raw(&ads2);
-        ESP_LOGI(TAG, "count  is : %d", value2);
-        float vol2 = ads1115_get_voltage(&ads2);
-        ESP_LOGI(TAG, "voltage  is : %f", vol2);
-        r2 = (vol2 * 2.7 / 1.5 - 0.330) *23.1729 + 10;
-        ((payload_t*)pvParameters)->sensor_data2 = r2;
-        ESP_LOGI(TAG, "Humidity value  is : %f", r2);
-        vTaskDelay(pdMS_TO_TICKS(500));
-
-        value3 = ads1115_get_raw(&ads3);
-        ESP_LOGI(TAG, "count  is : %d", value3);
-        float vol3 = ads1115_get_voltage(&ads3);//optimize
-        ESP_LOGI(TAG, "voltage  is : %f", vol3);
-        r3 = ((((133.21 * vol3) + 1491.05) / 32830.21) * 241);
-        ((payload_t*)pvParameters)->sensor_data3 = r3;
-        ESP_LOGI(TAG, "Battery voltage value  is : %f", r3);
-        vTaskDelay(pdMS_TO_TICKS(500));
-
-        value4 = ads1115_get_raw(&ads4);
-        ESP_LOGI(TAG, "count  is : %d", value4);
-        float vol4 = ads1115_get_voltage(&ads4);//optimize
-        ESP_LOGI(TAG, "voltage  is : %f", vol4);
-        r4 = vol4*(16/43);
-        ((payload_t*)pvParameters)->sensor_data4 = r4;
-        ESP_LOGI(TAG, "Light intensity value inside factory is : %f", r4);
-        vTaskDelay(pdMS_TO_TICKS(10000));
-    }
-
-}
-
-void adc_init(void)
-{
-    xTaskCreate((void*)adc_log, "ads1115 get voltage task", 4096, (void*)&payload, 2, NULL); 
 }

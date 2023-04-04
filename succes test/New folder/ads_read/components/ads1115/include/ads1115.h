@@ -12,21 +12,8 @@ extern "C" {
 #include "freertos/task.h"
 #include "freertos/queue.h"
 #include "esp_log.h"
-#include "esp_timer.h"
 
 
-
-typedef struct{
-    float sensor_data1;
-    float sensor_data2;
-    float sensor_data3;
-    float sensor_data4;
-    float sensor_data5;
-} payload_t;
-
-
-
-extern payload_t payload;
 
 typedef enum { // register address
   ADS1115_CONVERSION_REGISTER_ADDR = 0,
@@ -116,8 +103,6 @@ void ads1115_set_max_ticks(ads1115_t* ads, TickType_t max_ticks); // maximum wai
 
 int16_t ads1115_get_raw(ads1115_t* ads); // get voltage in bits
 double ads1115_get_voltage(ads1115_t* ads); // get voltage in volts
-void adc_init(void);
-
 
 #endif // ifdef ADS1115_H
 

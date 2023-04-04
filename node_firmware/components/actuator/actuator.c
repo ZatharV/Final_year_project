@@ -12,13 +12,13 @@ static const char *TAG = "ACTUATORS";
 
 static void actuator_setup(void)
 {
-    esp_rom_gpio_pad_select_gpio(LED_PIN);
+    gpio_pad_select_gpio(LED_PIN);
     gpio_set_direction(LED_PIN, GPIO_MODE_OUTPUT);
 
-    esp_rom_gpio_pad_select_gpio(MOTOR_PIN);
+    gpio_pad_select_gpio(MOTOR_PIN);
     gpio_set_direction(MOTOR_PIN, GPIO_MODE_OUTPUT);
 
-    esp_rom_gpio_pad_select_gpio(BUZZER);
+    gpio_pad_select_gpio(BUZZER);
     gpio_set_direction(BUZZER, GPIO_MODE_OUTPUT);
 }
 
