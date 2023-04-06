@@ -49,10 +49,12 @@ D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/protobuf-c
 D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/protocomm/libprotocomm.a
 D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/esp_local_ctrl/libesp_local_ctrl.a
 D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/espcoredump/libespcoredump.a
+D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/espmqtt/libespmqtt.a
 D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/wear_levelling/libwear_levelling.a
 D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/sdmmc/libsdmmc.a
 D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/fatfs/libfatfs.a
 D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/json/libjson.a
+D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/ads1115/libads1115.a
 D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/mqtt/libmqtt.a
 D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/perfmon/libperfmon.a
 D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/spiffs/libspiffs.a
@@ -60,5 +62,4 @@ D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/ulp/libulp
 D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/wifi_provisioning/libwifi_provisioning.a
 D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/main/libmain.a
 D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/actuator/libactuator.a
-D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/ads1115/libads1115.a
 D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/mq2/libmq2.a

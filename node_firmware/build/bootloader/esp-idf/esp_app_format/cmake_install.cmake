@@ -1,4 +1,4 @@
-# Install script for directory: D:/Espressif/frameworks/esp-idf-v5.0/components/esp_app_format
+# Install script for directory: D:/Espressif/frameworks/esp-idf-v5.0.1/components/esp_app_format
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

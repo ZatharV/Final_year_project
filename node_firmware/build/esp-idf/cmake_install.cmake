@@ -1,4 +1,4 @@
-# Install script for directory: D:/Espressif/frameworks/esp-idf-v5.0
+# Install script for directory: D:/Espressif/frameworks/esp-idf-v5.0.1
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -324,6 +324,11 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
+  include("D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/espmqtt/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
   include("D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/wear_levelling/cmake_install.cmake")
 endif()
 
@@ -350,6 +355,11 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
   include("D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/json/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/ads1115/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
@@ -395,11 +405,6 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
   include("D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/actuator/cmake_install.cmake")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/ads1115/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)

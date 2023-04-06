@@ -4,7 +4,7 @@
 cmake_minimum_required(VERSION 3.5)
 
 file(MAKE_DIRECTORY
-  "D:/Espressif/frameworks/esp-idf-v5.0/components/bootloader/subproject"
+  "D:/Espressif/frameworks/esp-idf-v5.0.1/components/bootloader/subproject"
   "D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader"
   "D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader-prefix"
   "D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader-prefix/tmp"
