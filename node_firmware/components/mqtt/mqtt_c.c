@@ -26,8 +26,6 @@
 #include "ads1115.h"
 
 static const char *TAG = "MQTT_TCP";
-#define SSID "Messi"
-#define PASS "mmmmmmmm"
 
 char sensor_char1[20];
 char sensor_char2[20];
@@ -41,50 +39,6 @@ static void log_error_if_nonzero(const char *message, int error_code)
     if (error_code != 0) {
         ESP_LOGE(TAG, "Last error %s: 0x%x", message, error_code);
     }
-}
-
-
-static void wifi_event_handler(void *event_handler_arg, esp_event_base_t event_base, int32_t event_id, void *event_data)
-{
-    switch (event_id)
-    {
-    case WIFI_EVENT_STA_START:
-        printf("WiFi connecting ... \n");
-        break;
-    case WIFI_EVENT_STA_CONNECTED:
-        printf("WiFi connected ... \n");
-        break;
-    case WIFI_EVENT_STA_DISCONNECTED:
-        printf("WiFi lost connection ... \n");
-        break;
-    case IP_EVENT_STA_GOT_IP:
-        printf("WiFi got IP ... \n\n");
-        break;
-    default:
-        printf("NO WIFI EVENT GOING DEFAULT. . \n");
-        break;
-    }
-}
-
-void wifi_connection()
-{
-    printf("fucntion wifi connection called..\n");
-    
-    esp_netif_init();                    
-    esp_event_loop_create_default();   
-    esp_netif_create_default_wifi_sta(); 
-    wifi_init_config_t wifi_initiation = WIFI_INIT_CONFIG_DEFAULT();
-    esp_wifi_init(&wifi_initiation); 
-    esp_event_handler_register(WIFI_EVENT, ESP_EVENT_ANY_ID, wifi_event_handler, NULL);
-    esp_event_handler_register(IP_EVENT, IP_EVENT_STA_GOT_IP, wifi_event_handler, NULL);
-    wifi_config_t wifi_configuration = {
-        .sta = {
-            .ssid = SSID,
-            .password = PASS}};
-    esp_wifi_set_config(ESP_IF_WIFI_STA, &wifi_configuration);
-    esp_wifi_start();
-    esp_wifi_connect();
-    printf("HOPEFULLY CONNECTED\n");
 }
 
 static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_t event_id, void *event_data)
@@ -108,20 +62,38 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
         // msg_id = esp_mqtt_client_unsubscribe(client, "/topic/qos1");
         // ESP_LOGI(TAG, "sent unsubscribe successful, msg_id=%d", msg_id);
 
-         while (1)
-    {
-        //esp_mqtt_client_handle_t client = (esp_mqtt_client_handle_t) params;
-        if(MQTT_EVENT_CONNECTED)
+        while (1)
         {
-            
-            
-            vTaskDelay(1000 / portTICK_PERIOD_MS);
-            sprintf(sensor_char1, "%g", payload.sensor_data1);
-            esp_mqtt_client_publish(client, "/topic/qos1", sensor_char1, 0, 1, 0);
-            printf("Data sent: %s", sensor_char1 );
-            vTaskDelay(10000 / portTICK_PERIOD_MS);
-        }
-    }
+        //esp_mqtt_client_handle_t client = (esp_mqtt_client_handle_t) params;
+            if(MQTT_EVENT_CONNECTED)
+                {
+                    vTaskDelay(500 / portTICK_PERIOD_MS);
+                    sprintf(sensor_char1, "%g", payload.sensor_data1);
+                    esp_mqtt_client_publish(client, "/topic/qos1", sensor_char1, 0, 1, 0);
+                    printf("Data sent1: %s", sensor_char1 );
+
+                    vTaskDelay(500 / portTICK_PERIOD_MS);
+                    sprintf(sensor_char2, "%g", payload.sensor_data2);
+                    esp_mqtt_client_publish(client, "/topic/qos1", sensor_char2, 0, 1, 0);
+                    printf("Data sent2: %s", sensor_char2 );
+
+                    vTaskDelay(500 / portTICK_PERIOD_MS);
+                    sprintf(sensor_char3, "%g", payload.sensor_data3);
+                    esp_mqtt_client_publish(client, "/topic/qos1", sensor_char3, 0, 1, 0);
+                    printf("Data sent3: %s", sensor_char3);
+
+                    vTaskDelay(500 / portTICK_PERIOD_MS);
+                    sprintf(sensor_char4, "%g", payload.sensor_data4);
+                    esp_mqtt_client_publish(client, "/topic/qos1", sensor_char4, 0, 1, 0);
+                    printf("Data sent4: %s", sensor_char4);
+
+                    vTaskDelay(500 / portTICK_PERIOD_MS);
+                    sprintf(sensor_char5, "%g", payload.sensor_data5);
+                    esp_mqtt_client_publish(client, "/topic/qos1", sensor_char5, 0, 1, 0);
+                    printf("Data sent4: %s", sensor_char5);
+                    vTaskDelay(10000 / portTICK_PERIOD_MS);
+                }
+            }
 
         break;
     case MQTT_EVENT_DISCONNECTED:
@@ -163,7 +135,7 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
 static void mqtt_app_start(void)
 {
     esp_mqtt_client_config_t mqtt_cfg = {
-        .broker.address.uri = "mqtt://test.mosquitto.org:1883",
+        .broker.address.uri = "mqtt://broker.hivemq.com:1883",
     };
     esp_mqtt_client_handle_t client = esp_mqtt_client_init(&mqtt_cfg);
     esp_mqtt_client_register_event(client, ESP_EVENT_ANY_ID, mqtt_event_handler, client);
@@ -174,12 +146,10 @@ static void mqtt_app_start(void)
 
 void mqtt_init(void)
 {
-    nvs_flash_init();
-    ESP_ERROR_CHECK(esp_netif_init());
-    wifi_connection();
+    
 
     vTaskDelay(2000 / portTICK_PERIOD_MS);
-    printf("WIFI was initiated ...........\n");
+    printf("WIFI was initiated so sending mqtt data...........\n");
 
     mqtt_app_start();
     //xTaskCreate((void*)uplink_msg, "mqtt push msgfunction", 4096, NULL, 2, NULL);

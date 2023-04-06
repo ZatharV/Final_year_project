@@ -412,3 +412,8 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/mq2/cmake_install.cmake")
 endif()
 
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/wifi_station/cmake_install.cmake")
+endif()
+

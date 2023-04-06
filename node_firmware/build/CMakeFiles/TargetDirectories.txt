@@ -622,3 +622,10 @@ D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/mq2/CMakeF
 D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/mq2/CMakeFiles/install.dir
 D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/mq2/CMakeFiles/install/local.dir
 D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/mq2/CMakeFiles/install/strip.dir
+D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/wifi_station/CMakeFiles/__idf_wifi_station.dir
+D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/wifi_station/CMakeFiles/edit_cache.dir
+D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/wifi_station/CMakeFiles/rebuild_cache.dir
+D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/wifi_station/CMakeFiles/list_install_components.dir
+D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/wifi_station/CMakeFiles/install.dir
+D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/wifi_station/CMakeFiles/install/local.dir
+D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/wifi_station/CMakeFiles/install/strip.dir
