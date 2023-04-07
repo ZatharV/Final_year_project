@@ -22,6 +22,10 @@ typedef struct{
     float sensor_data3;
     float sensor_data4;
     float sensor_data5;
+    float sensor_data6;
+    float sensor_data7;
+    float sensor_data8;
+
 } payload_t;
 
 

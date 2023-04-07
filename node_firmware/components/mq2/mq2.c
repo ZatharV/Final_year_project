@@ -11,6 +11,7 @@
 #include "ads1115.h"
 #include "esp_efuse.h"
 #include "esp_adc_cal.h"
+#include <math.h>
 
 
 #define STACK_SIZE 2048
@@ -19,9 +20,103 @@ static const char *TAG = "MQ2";
 static esp_adc_cal_characteristics_t adc_chars; 
 static float voltage;
 adc_cali_handle_t cali_handle;
-// payload_t payload;
 
 
+#define         MQ_PIN                       ADC1_CHANNEL_6     
+#define         RL_VALUE                     (5)     
+#define         RO_CLEAN_AIR_FACTOR          (9.83)  
+                                                     
+
+/***********************Software Related Macros************************************/
+#define         CALIBARAION_SAMPLE_TIMES     (50)   
+#define         CALIBRATION_SAMPLE_INTERVAL  (500)   
+                                                     
+#define         READ_SAMPLE_INTERVAL         (50)    
+#define         READ_SAMPLE_TIMES            (5)      
+                                                     
+
+/**********************Application Related Macros**********************************/
+#define         GAS_LPG                      (0)
+#define         GAS_CO                       (1)
+#define         GAS_SMOKE                    (2)
+
+/*****************************Globals***********************************************/
+float LPGCurve[3] = {2.3,0.21,-0.47};  
+                                                    
+                                                    
+                                                    
+float COCurve[3] = {2.3,0.72,-0.34};    
+                                                    
+                                                    
+                                                    
+float SmokeCurve[3] = {2.3,0.53,-0.44};    
+                                                    
+                                                    
+                                                                                                       
+float Ro = 10;   
+
+float MQResistanceCalculation(int raw_adc)
+{
+  return ( ((float)RL_VALUE*(1023-raw_adc)/raw_adc));
+}
+
+float MQCalibration(int mq_pin)
+{
+  int i;
+  float val=0;
+
+  for (i=0;i<CALIBARAION_SAMPLE_TIMES;i++) {            //take multiple samples
+    val += MQResistanceCalculation(adc1_get_raw(ADC1_CHANNEL_6));
+    vTaskDelay(pdMS_TO_TICKS(CALIBRATION_SAMPLE_INTERVAL));
+  }
+  val = val/CALIBARAION_SAMPLE_TIMES;                   //calculate the average value
+
+  val = val/RO_CLEAN_AIR_FACTOR;                        //divided by RO_CLEAN_AIR_FACTOR yields the Ro 
+                                                        //according to the chart in the datasheet 
+
+  return val; 
+}
+
+
+float MQRead(int mq_pin)
+{
+  int i;
+  float rs=0;
+
+  for (i=0;i<READ_SAMPLE_TIMES;i++) {
+    rs += MQResistanceCalculation(adc1_get_raw(ADC1_CHANNEL_6));
+    vTaskDelay(pdMS_TO_TICKS(READ_SAMPLE_INTERVAL));
+  }
+
+  rs = rs/READ_SAMPLE_TIMES;
+
+  return rs;  
+}
+
+
+int  MQGetPercentage(float rs_ro_ratio, float *pcurve)
+{
+  return (pow(10,( ((log(rs_ro_ratio)-pcurve[1])/pcurve[2]) + pcurve[0])));
+}
+
+int MQGetGasPercentage(float rs_ro_ratio, int gas_id)
+{
+  if ( gas_id == GAS_LPG ) {
+     return MQGetPercentage(rs_ro_ratio,LPGCurve);
+  } else if ( gas_id == GAS_CO ) {
+     return MQGetPercentage(rs_ro_ratio,COCurve);
+  } else if ( gas_id == GAS_SMOKE ) {
+     return MQGetPercentage(rs_ro_ratio,SmokeCurve);
+  }    
+
+  return 0;
+}
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
 static void battery_setup()
 {
     
@@ -29,14 +124,14 @@ static void battery_setup()
 
     ESP_LOGI(TAG, "calibration scheme version is %s", "Line Fitting");
 
-    // Configure calibration parameters
+   
     adc_cali_line_fitting_config_t cali_config = {
         .unit_id = ADC_UNIT_1,
         .atten = ADC_ATTEN_DB_11,
         .bitwidth = ADC_WIDTH_BIT_12,
     };
 
-    // Create a new calibration scheme
+    
     err = adc_cali_create_scheme_line_fitting(&cali_config, &cali_handle);
     if (err != ESP_OK) {
         ESP_LOGE(TAG, "failed to create calibration scheme: %s", esp_err_to_name(err));
@@ -48,29 +143,36 @@ static void battery_setup()
     {
 
         ESP_LOGE(TAG,"The calibration mode is not supported in eFuse: %s",esp_err_to_name(err));
-        //adc_cali_handle_t cali_handle = adc_cali_create(ADC_UNIT_1, ADC_WIDTH_BIT_12, ESP_ADC_CAL_VAL_DEFAULT_VREF, "DEFAULT_CALIBRATION");
         esp_adc_cal_characterize(ADC_UNIT_1, ADC_ATTEN_DB_11 , ADC_WIDTH_BIT_12, ESP_ADC_CAL_VAL_DEFAULT_VREF, &adc_chars);
     }
     else
     {
-        //adc_cali_handle_t cali_handle = adc_cali_create(ADC_UNIT_1, ADC_WIDTH_BIT_12, ESP_ADC_CAL_VAL_EFUSE_VREF, "DEFAULT_CALIBRATION");
+        
         esp_adc_cal_characterize(ADC_UNIT_1, ADC_ATTEN_DB_11 , ADC_WIDTH_BIT_12, ESP_ADC_CAL_VAL_EFUSE_VREF, &adc_chars);
 		ESP_LOGE(TAG,"The calibration mode is supported in eFuse ");
     }
 	ESP_ERROR_CHECK(adc1_config_width(ADC_WIDTH_BIT_12));
 	ESP_ERROR_CHECK(adc1_config_channel_atten(ADC1_CHANNEL_6, ADC_ATTEN_DB_11));
+
+    Ro = MQCalibration(MQ_PIN);
 }
 
 static void battery_get_voltage_task(void* pvParameters)
 {
     while (1) 
     {
-        //esp_adc_cal_raw_to_voltage(adc_chars, adc1_get_raw(ADC1_CHANNEL_6), &adc_chars);
-        //adc_cali_handle_t cali_handle = adc_cali_create(ESP_ADC_CAL_VAL_EFUSE_VREF);
         ESP_ERROR_CHECK(adc_cali_raw_to_voltage(cali_handle, adc1_get_raw(ADC1_CHANNEL_6), (int*)&voltage));
 
-        ((payload_t*)pvParameters)->sensor_data5=voltage;
-        ESP_LOGI(TAG,"voltage from mq2 is %.2f", payload.sensor_data5);
+        int16_t lpg = MQGetGasPercentage(MQRead(MQ_PIN)/Ro,GAS_LPG);
+        int16_t co = MQGetGasPercentage(MQRead(MQ_PIN)/Ro,GAS_CO);
+        int16_t smoke =  MQGetGasPercentage(MQRead(MQ_PIN)/Ro,GAS_SMOKE);
+        printf("lpg in ppm: %d\n", MQGetGasPercentage(MQRead(MQ_PIN)/Ro,GAS_LPG));
+        printf("CO in ppm: %d\n", MQGetGasPercentage(MQRead(MQ_PIN)/Ro,GAS_CO));
+        printf("gas smoke in ppm:  %d\n", MQGetGasPercentage(MQRead(MQ_PIN)/Ro,GAS_SMOKE));
+        ((payload_t*)pvParameters)->sensor_data5=(float)lpg;
+        ((payload_t*)pvParameters)->sensor_data6=(float)co;
+        ((payload_t*)pvParameters)->sensor_data7=(float)smoke;
+        ESP_LOGI(TAG,"voltage from mq2 is %.2f", payload.sensor_data6);
         vTaskDelay(pdMS_TO_TICKS(1000));
     }
 }

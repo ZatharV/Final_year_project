@@ -33,6 +33,9 @@ char sensor_char2[20];
 char sensor_char3[20];
 char sensor_char4[20];
 char sensor_char5[20];
+char sensor_char6[20];
+char sensor_char7[20];
+char sensor_char8[20];
 
 
 static void log_error_if_nonzero(const char *message, int error_code)
@@ -84,10 +87,26 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
                         vTaskDelay(500 / portTICK_PERIOD_MS);
                         sprintf(sensor_char5, "%g", payload.sensor_data5);
                         esp_mqtt_client_publish(client, "/topic/qos1", sensor_char5, 0, 1, 0);
-                        printf("Data sent4: %s", sensor_char5);
-                        vTaskDelay(10000 / portTICK_PERIOD_MS);
+                        printf("Data sent5: %s", sensor_char5);
+                        vTaskDelay(100 / portTICK_PERIOD_MS);
 
+                        vTaskDelay(500 / portTICK_PERIOD_MS);
+                        sprintf(sensor_char6, "%g", payload.sensor_data6);
+                        esp_mqtt_client_publish(client, "/topic/qos1", sensor_char6, 0, 1, 0);
+                        printf("Data sent6: %s", sensor_char6);
+                        vTaskDelay(100 / portTICK_PERIOD_MS);
 
+                        vTaskDelay(500 / portTICK_PERIOD_MS);
+                        sprintf(sensor_char7, "%g", payload.sensor_data7);
+                        esp_mqtt_client_publish(client, "/topic/qos1", sensor_char7, 0, 1, 0);
+                        printf("Data sent7: %s", sensor_char7);
+                        vTaskDelay(100 / portTICK_PERIOD_MS);
+
+                        vTaskDelay(500 / portTICK_PERIOD_MS);
+                        sprintf(sensor_char8, "%g", payload.sensor_data8);
+                        esp_mqtt_client_publish(client, "/topic/qos1", sensor_char8, 0, 1, 0);
+                        printf("Data sent8: %s", sensor_char8);
+                        vTaskDelay(100 / portTICK_PERIOD_MS);
                         //esp_mqtt_client_subscribe(client, "/topic/qos0", 1);
                     }
         }

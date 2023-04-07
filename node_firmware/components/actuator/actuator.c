@@ -4,6 +4,7 @@
 #include "esp_log.h"
 #include "driver/gpio.h"
 #include "actuator.h"
+#include "ads1115.h"
 
 #define LED_PIN 2
 #define MOTOR_PIN 4
@@ -23,14 +24,16 @@ static void actuator_setup(void)
 }
 
 
-static void actuator_task(void)
+static void actuator_task(void* param)
 {
+
     static int ON = 0;
     while(true)
     {
         ON = !ON;
         gpio_set_level(LED_PIN, ON);
         gpio_set_level(MOTOR_PIN, ON);
+        ((payload_t*)param)->sensor_data8=(float)ON;
         gpio_set_level(BUZZER, ON);
         vTaskDelay(1000/ portTICK_PERIOD_MS);
         ESP_LOGI(TAG,"RUNNING MTOR LED BUZZER");
@@ -42,7 +45,7 @@ static void actuator_task(void)
 void actuator_init(void)
 {
     actuator_setup();
-    xTaskCreate((void*)actuator_task, "run the actuators", 2048, NULL, 2, NULL); 
+    xTaskCreate((void*)actuator_task, "run the actuators", 2048, (void*)&payload, 2, NULL); 
 
 }
 
