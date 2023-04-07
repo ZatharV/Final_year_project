@@ -1,11 +1,1 @@
-0000000000000000000000000000000000000000 f19af6d9e2ab3684f63d490e7b6641b64572e908 Nipun <nniippuunn0@gmail.com> 1678479108 +0530	branch: Created from main
-f19af6d9e2ab3684f63d490e7b6641b64572e908 c12d3547aba9e8da298a6ffbfec9a5fed410e773 Nipun <nniippuunn0@gmail.com> 1678479881 +0530	commit: idf files
-c12d3547aba9e8da298a6ffbfec9a5fed410e773 9aeeb10d43f3e1d02030af5d417b77587fe19dd9 Nipun <nniippuunn0@gmail.com> 1678566863 +0530	commit: internal adc working in success testing dust and actuator
-9aeeb10d43f3e1d02030af5d417b77587fe19dd9 1e9fa4dd925b104a1bb4fc87f7a841370c6edc2a Nipun <nniippuunn0@gmail.com> 1678631870 +0530	commit: latest
-1e9fa4dd925b104a1bb4fc87f7a841370c6edc2a 89fc86b874e6e9a8f59e50bda4d9e6e90fe1bf2a Nipun <nniippuunn0@gmail.com> 1678731827 +0530	commit: adding mqtt seperate
-89fc86b874e6e9a8f59e50bda4d9e6e90fe1bf2a 74bd5c4196bffd184f01553c2007f3e216da6736 Nipun <nniippuunn0@gmail.com> 1678878780 +0530	commit: new arduino files added
-74bd5c4196bffd184f01553c2007f3e216da6736 ec24ca55f62b1309c1901e421279c3c4e4c6c7cf Nipun <nniippuunn0@gmail.com> 1679060703 +0530	commit: mqtt baseline
-ec24ca55f62b1309c1901e421279c3c4e4c6c7cf 9f9e09c9aae012106ad08dcb56450181852c5428 Nipun <nniippuunn0@gmail.com> 1680205073 +0530	commit: components in process
-9f9e09c9aae012106ad08dcb56450181852c5428 f466cb39bdc5f05fa70165cfc2da1d62c94f55d5 Nipun <nniippuunn0@gmail.com> 1680449395 +0530	commit: components reading sensors
-f466cb39bdc5f05fa70165cfc2da1d62c94f55d5 8df42dc764bc3c2e6a86f3e3a871469c81793da0 Nipun <nniippuunn0@gmail.com> 1680451585 +0530	commit: update2
-8df42dc764bc3c2e6a86f3e3a871469c81793da0 39444ab6626150fbff661389be5c6203e6e979b5 Nipun <nniippuunn0@gmail.com> 1680751731 +0530	commit: build possible with wifi error
+3b1d7e916c10d48de0f81ec135e626bb87f00068

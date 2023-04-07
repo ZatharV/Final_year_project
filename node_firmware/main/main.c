@@ -8,7 +8,7 @@
 #include "wifi_station.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
-
+#include "mqtt_client.h"
 
 
 
@@ -20,7 +20,8 @@ void app_main(void)
     adc_init();
     battery_init();
     actuator_init(); 
-    mqtt_init();    
+    mqtt_init();  
+
 
     
     
