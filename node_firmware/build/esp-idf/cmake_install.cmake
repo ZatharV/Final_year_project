@@ -359,6 +359,11 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
+  include("D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/actuator/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
   include("D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/ads1115/cmake_install.cmake")
 endif()
 
@@ -400,11 +405,6 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
   include("D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/main/cmake_install.cmake")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/actuator/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)

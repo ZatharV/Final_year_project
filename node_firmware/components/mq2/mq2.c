@@ -12,6 +12,7 @@
 #include "esp_efuse.h"
 #include "esp_adc_cal.h"
 #include <math.h>
+#include "actuator.h"
 
 
 #define STACK_SIZE 2048
@@ -172,6 +173,17 @@ static void battery_get_voltage_task(void* pvParameters)
         ((payload_t*)pvParameters)->sensor_data5=(float)lpg;
         ((payload_t*)pvParameters)->sensor_data6=(float)co;
         ((payload_t*)pvParameters)->sensor_data7=(float)smoke;
+        if (smoke > 200)
+        {
+          motor_on();
+          ((payload_t*)pvParameters)->sensor_data8 = 1;
+        
+        }
+        else
+        {
+          motor_off(); 
+          ((payload_t*)pvParameters)->sensor_data8 = 0;
+        }
         ESP_LOGI(TAG,"voltage from mq2 is %.2f", payload.sensor_data6);
         vTaskDelay(pdMS_TO_TICKS(1000));
     }

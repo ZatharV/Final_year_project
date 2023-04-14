@@ -1,0 +1,60 @@
+[0/1] Re-running CMake...
+-- ccache will be used for faster recompilation
+-- Building ESP-IDF components for target esp32
+Processing 1 dependencies:
+[1/1] idf (5.0.1)
+-- Project sdkconfig file D:/nipun prev laptop/final_year/idf_files/node_firmware/sdkconfig
+-- App "node_firmware" version: a4dff52-dirty
+-- Adding linker script D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/esp_system/ld/memory.ld
+-- Adding linker script D:/Espressif/frameworks/esp-idf-v5.0.1/components/esp_system/ld/esp32/sections.ld.in
+-- Adding linker script D:/Espressif/frameworks/esp-idf-v5.0.1/components/esp_rom/esp32/ld/esp32.rom.ld
+-- Adding linker script D:/Espressif/frameworks/esp-idf-v5.0.1/components/esp_rom/esp32/ld/esp32.rom.api.ld
+-- Adding linker script D:/Espressif/frameworks/esp-idf-v5.0.1/components/esp_rom/esp32/ld/esp32.rom.libgcc.ld
+-- Adding linker script D:/Espressif/frameworks/esp-idf-v5.0.1/components/esp_rom/esp32/ld/esp32.rom.newlib-data.ld
+-- Adding linker script D:/Espressif/frameworks/esp-idf-v5.0.1/components/esp_rom/esp32/ld/esp32.rom.syscalls.ld
+-- Adding linker script D:/Espressif/frameworks/esp-idf-v5.0.1/components/esp_rom/esp32/ld/esp32.rom.newlib-funcs.ld
+-- Adding linker script D:/Espressif/frameworks/esp-idf-v5.0.1/components/soc/esp32/ld/esp32.peripherals.ld
+-- Components: actuator ads1115 app_trace app_update bootloader bootloader_support bt cmock console cxx driver efuse esp-tls esp_adc esp_app_format esp_common esp_eth esp_event esp_gdbstub esp_hid esp_http_client esp_http_server esp_https_ota esp_https_server esp_hw_support esp_lcd esp_local_ctrl esp_netif esp_partition esp_phy esp_pm esp_psram esp_ringbuf esp_rom esp_system esp_timer esp_wifi espcoredump espmqtt esptool_py fatfs freertos hal heap http_parser idf_test ieee802154 json log lwip main mbedtls mq2 mqtt newlib nvs_flash openthread partition_table perfmon protobuf-c protocomm pthread sdmmc soc spi_flash spiffs tcp_transport ulp unity usb vfs wear_levelling wifi_provisioning wifi_station wpa_supplicant xtensa
+-- Component paths: D:/nipun prev laptop/final_year/idf_files/node_firmware/components/actuator D:/nipun prev laptop/final_year/idf_files/node_firmware/components/ads1115 D:/Espressif/frameworks/esp-idf-v5.0.1/components/app_trace D:/Espressif/frameworks/esp-idf-v5.0.1/components/app_update D:/Espressif/frameworks/esp-idf-v5.0.1/components/bootloader D:/Espressif/frameworks/esp-idf-v5.0.1/components/bootloader_support D:/Espressif/frameworks/esp-idf-v5.0.1/components/bt D:/Espressif/frameworks/esp-idf-v5.0.1/components/cmock D:/Espressif/frameworks/esp-idf-v5.0.1/components/console D:/Espressif/frameworks/esp-idf-v5.0.1/components/cxx D:/Espressif/frameworks/esp-idf-v5.0.1/components/driver D:/Espressif/frameworks/esp-idf-v5.0.1/components/efuse D:/Espressif/frameworks/esp-idf-v5.0.1/components/esp-tls D:/Espressif/frameworks/esp-idf-v5.0.1/components/esp_adc D:/Espressif/frameworks/esp-idf-v5.0.1/components/esp_app_format D:/Espressif/frameworks/esp-idf-v5.0.1/components/esp_common D:/Espressif/frameworks/esp-idf-v5.0.1/components/esp_eth D:/Espressif/frameworks/esp-idf-v5.0.1/components/esp_event D:/Espressif/frameworks/esp-idf-v5.0.1/components/esp_gdbstub D:/Espressif/frameworks/esp-idf-v5.0.1/components/esp_hid D:/Espressif/frameworks/esp-idf-v5.0.1/components/esp_http_client D:/Espressif/frameworks/esp-idf-v5.0.1/components/esp_http_server D:/Espressif/frameworks/esp-idf-v5.0.1/components/esp_https_ota D:/Espressif/frameworks/esp-idf-v5.0.1/components/esp_https_server D:/Espressif/frameworks/esp-idf-v5.0.1/components/esp_hw_support D:/Espressif/frameworks/esp-idf-v5.0.1/components/esp_lcd D:/Espressif/frameworks/esp-idf-v5.0.1/components/esp_local_ctrl D:/Espressif/frameworks/esp-idf-v5.0.1/components/esp_netif D:/Espressif/frameworks/esp-idf-v5.0.1/components/esp_partition D:/Espressif/frameworks/esp-idf-v5.0.1/components/esp_phy D:/Espressif/frameworks/esp-idf-v5.0.1/components/esp_pm D:/Espressif/frameworks/esp-idf-v5.0.1/components/esp_psram D:/Espressif/frameworks/esp-idf-v5.0.1/components/esp_ringbuf D:/Espressif/frameworks/esp-idf-v5.0.1/components/esp_rom D:/Espressif/frameworks/esp-idf-v5.0.1/components/esp_system D:/Espressif/frameworks/esp-idf-v5.0.1/components/esp_timer D:/Espressif/frameworks/esp-idf-v5.0.1/components/esp_wifi D:/Espressif/frameworks/esp-idf-v5.0.1/components/espcoredump D:/Espressif/frameworks/esp-idf-v5.0.1/components/espmqtt D:/Espressif/frameworks/esp-idf-v5.0.1/components/esptool_py D:/Espressif/frameworks/esp-idf-v5.0.1/components/fatfs D:/Espressif/frameworks/esp-idf-v5.0.1/components/freertos D:/Espressif/frameworks/esp-idf-v5.0.1/components/hal D:/Espressif/frameworks/esp-idf-v5.0.1/components/heap D:/Espressif/frameworks/esp-idf-v5.0.1/components/http_parser D:/Espressif/frameworks/esp-idf-v5.0.1/components/idf_test D:/Espressif/frameworks/esp-idf-v5.0.1/components/ieee802154 D:/Espressif/frameworks/esp-idf-v5.0.1/components/json D:/Espressif/frameworks/esp-idf-v5.0.1/components/log D:/Espressif/frameworks/esp-idf-v5.0.1/components/lwip D:/nipun prev laptop/final_year/idf_files/node_firmware/main D:/Espressif/frameworks/esp-idf-v5.0.1/components/mbedtls D:/nipun prev laptop/final_year/idf_files/node_firmware/components/mq2 D:/nipun prev laptop/final_year/idf_files/node_firmware/components/mqtt D:/Espressif/frameworks/esp-idf-v5.0.1/components/newlib D:/Espressif/frameworks/esp-idf-v5.0.1/components/nvs_flash D:/Espressif/frameworks/esp-idf-v5.0.1/components/openthread D:/Espressif/frameworks/esp-idf-v5.0.1/components/partition_table D:/Espressif/frameworks/esp-idf-v5.0.1/components/perfmon D:/Espressif/frameworks/esp-idf-v5.0.1/components/protobuf-c D:/Espressif/frameworks/esp-idf-v5.0.1/components/protocomm D:/Espressif/frameworks/esp-idf-v5.0.1/components/pthread D:/Espressif/frameworks/esp-idf-v5.0.1/components/sdmmc D:/Espressif/frameworks/esp-idf-v5.0.1/components/soc D:/Espressif/frameworks/esp-idf-v5.0.1/components/spi_flash D:/Espressif/frameworks/esp-idf-v5.0.1/components/spiffs D:/Espressif/frameworks/esp-idf-v5.0.1/components/tcp_transport D:/Espressif/frameworks/esp-idf-v5.0.1/components/ulp D:/Espressif/frameworks/esp-idf-v5.0.1/components/unity D:/Espressif/frameworks/esp-idf-v5.0.1/components/usb D:/Espressif/frameworks/esp-idf-v5.0.1/components/vfs D:/Espressif/frameworks/esp-idf-v5.0.1/components/wear_levelling D:/Espressif/frameworks/esp-idf-v5.0.1/components/wifi_provisioning D:/nipun prev laptop/final_year/idf_files/node_firmware/components/wifi_station D:/Espressif/frameworks/esp-idf-v5.0.1/components/wpa_supplicant D:/Espressif/frameworks/esp-idf-v5.0.1/components/xtensa
+-- Configuring done
+-- Generating done
+-- Build files have been written to: D:/nipun prev laptop/final_year/idf_files/node_firmware/build
+[1/22] Performing build step for 'bootloader'
+[1/1] cmd.exe /C "cd /D "D:\nipun prev laptop\final_year\idf_files\node_firmware\build\bootloader\esp-idf\esptool_py" && D:\Espressif\python_env\idf5.0_py3.11_env\Scripts\python.exe D:/Espressif/frameworks/esp-idf-v5.0.1/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 "D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader/bootloader.bin""
+Bootloader binary size 0x6710 bytes. 0x8f0 bytes (8%) free.
+[2/20] Building C object esp-idf/esp_app_format/CMakeFiles/__idf_esp_app_format.dir/esp_app_desc.c.obj
+[3/20] Linking C static library esp-idf\esp_app_format\libesp_app_format.a
+[4/20] Building C object esp-idf/wifi_station/CMakeFiles/__idf_wifi_station.dir/wifi_station.c.obj
+[5/20] Building C object esp-idf/actuator/CMakeFiles/__idf_actuator.dir/actuator.c.obj
+D:/nipun prev laptop/final_year/idf_files/node_firmware/components/actuator/actuator.c:12:20: warning: 'TAG' defined but not used [-Wunused-variable]
+   12 | static const char *TAG = "ACTUATORS";
+      |                    ^~~
+[6/20] Building C object esp-idf/ads1115/CMakeFiles/__idf_ads1115.dir/ads1115.c.obj
+[7/20] Building C object esp-idf/mq2/CMakeFiles/__idf_mq2.dir/mq2.c.obj
+In file included from D:/nipun prev laptop/final_year/idf_files/node_firmware/components/mq2/mq2.c:2:
+D:/Espressif/frameworks/esp-idf-v5.0.1/components/driver/deprecated/driver/adc.h:19:2: warning: #warning "legacy adc driver is deprecated, please migrate to use esp_adc/adc_oneshot.h and esp_adc/adc_continuous.h for oneshot mode and continuous mode drivers respectively" [-Wcpp]
+   19 | #warning "legacy adc driver is deprecated, please migrate to use esp_adc/adc_oneshot.h and esp_adc/adc_continuous.h for oneshot mode and continuous mode drivers respectively"
+      |  ^~~~~~~
+In file included from D:/nipun prev laptop/final_year/idf_files/node_firmware/components/mq2/mq2.c:13:
+D:/Espressif/frameworks/esp-idf-v5.0.1/components/esp_adc/deprecated/include/esp_adc_cal.h:17:2: warning: #warning "legacy adc calibration driver is deprecated, please migrate to use esp_adc/adc_cali.h and esp_adc/adc_cali_scheme.h" [-Wcpp]
+   17 | #warning "legacy adc calibration driver is deprecated, please migrate to use esp_adc/adc_cali.h and esp_adc/adc_cali_scheme.h"
+      |  ^~~~~~~
+[8/20] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj
+[9/20] Linking C static library esp-idf\ads1115\libads1115.a
+[10/20] Linking C static library esp-idf\actuator\libactuator.a
+[11/20] Building C object esp-idf/mqtt/CMakeFiles/__idf_mqtt.dir/mqtt_c.c.obj
+[12/20] Linking C static library esp-idf\mq2\libmq2.a
+[13/20] Linking C static library esp-idf\mqtt\libmqtt.a
+[14/20] Linking C static library esp-idf\wifi_station\libwifi_station.a
+[15/20] Linking C static library esp-idf\main\libmain.a
+[16/20] Generating ld/sections.ld
+[17/20] Building C object CMakeFiles/node_firmware.elf.dir/project_elf_src_esp32.c.obj
+[18/20] Linking CXX executable node_firmware.elf
+[19/20] Generating binary image from built executable
+esptool.py v4.5.1
+Creating esp32 image...
+Merged 25 ELF sections
+Successfully created esp32 image.
+Generated D:/nipun prev laptop/final_year/idf_files/node_firmware/build/node_firmware.bin
+[20/20] cmd.exe /C "cd /D "D:\nipun prev laptop\final_year\idf_files\node_firmware\build\esp-idf\esptool_py" && D:\Espressif\python_env\idf5.0_py3.11_env\Scripts\python.exe D:/Espressif/frameworks/esp-idf-v5.0.1/components/partition_table/check_sizes.py --offset 0x8000 partition --type app "D:/nipun prev laptop/final_year/idf_files/node_firmware/build/partition_table/partition-table.bin" "D:/nipun prev laptop/final_year/idf_files/node_firmware/build/node_firmware.bin""
+node_firmware.bin binary size 0xd7780 bytes. Smallest app partition is 0x100000 bytes. 0x28880 bytes (16%) free.

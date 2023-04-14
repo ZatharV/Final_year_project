@@ -6,4 +6,5 @@ idf_component_register(SRCS "mq2.c"
                        REQUIRES ads1115
                        REQUIRES esp_adc
                        REQUIRES efuse
+                       REQUIRES actuator
                        )

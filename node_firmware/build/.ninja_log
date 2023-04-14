@@ -36,7 +36,7 @@
 4717	4770	7024156954782817	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/crypto/dh_group5.c.obj	79d046ee53bb0502
 775	815	7024156915260868	esp-idf/hal/CMakeFiles/__idf_hal.dir/uart_hal_iram.c.obj	c1b320a1f997d6f
 318	372	7024156910886898	esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/startup.c.obj	f7ea5c299cb102d
-32	233	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader/bootloader.elf	6bf17fc938a8c2d8
+32	251	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader/bootloader.elf	6bf17fc938a8c2d8
 1420	1455	7024156921665610	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/rsa_alt_helpers.c.obj	7fdbda198822ba5a
 560	603	7024156913073883	esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/port/arch/xtensa/esp_ipc_isr_routines.S.obj	f34c5dabfb82229d
 4696	4761	7024156954626600	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/crypto/crypto_ops.c.obj	8bfc8dbb9f2edb6f
@@ -133,7 +133,7 @@
 38	532	7024156908856129	partition_table/partition-table.bin	7d119a882e630066
 4352	4414	7024156951346122	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/apps/dhcpserver/dhcpserver.c.obj	1fc2d989193995ed
 514	549	7024156912761456	esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/port/arch/xtensa/trax.c.obj	db9abeeb76948683
-38	161	0	esp-idf/esptool_py/CMakeFiles/app_check_size	7d2d73c83a516d06
+9586	9683	0	esp-idf/esptool_py/CMakeFiles/app_check_size	7d2d73c83a516d06
 540	589	7024156913073883	esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/port/arch/xtensa/esp_ipc_isr.c.obj	fe3c38c200371ff3
 3504	3563	7024156942754394	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/lwip/src/apps/sntp/sntp.c.obj	6234dd8e102fab79
 21630	21744	7024157124742810	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	1152a49db054456f
@@ -205,7 +205,7 @@
 810	854	7024156915573296	esp-idf/hal/CMakeFiles/__idf_hal.dir/pcnt_hal.c.obj	db41f9702bdfe52c
 2800	2855	7024156935568593	esp-idf/newlib/CMakeFiles/__idf_newlib.dir/stdatomic.c.obj	4676339b88a8eb22
 4210	4267	7024156949783988	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/lwip/src/netif/ppp/pppapi.c.obj	6c31335ffcba12f1
-32	233	7024157049448041	bootloader/bootloader.elf	6bf17fc938a8c2d8
+32	251	7024157049448041	bootloader/bootloader.elf	6bf17fc938a8c2d8
 822	870	7024156915729505	esp-idf/hal/CMakeFiles/__idf_hal.dir/sdm_hal.c.obj	8882583e0b4b9d33
 3140	3205	7024156939161489	esp-idf/nvs_flash/CMakeFiles/__idf_nvs_flash.dir/src/nvs_types.cpp.obj	5ce320926aa9d044
 11737	11804	7024157025078760	esp-idf/esp_lcd/CMakeFiles/__idf_esp_lcd.dir/src/esp_lcd_panel_ssd1306.c.obj	861f2a17905714b2
@@ -227,7 +227,7 @@
 907	939	7024156916666787	esp-idf/hal/CMakeFiles/__idf_hal.dir/esp32/gpio_hal_workaround.c.obj	aedf993dfccdab3d
 901	946	7024156916510573	esp-idf/hal/CMakeFiles/__idf_hal.dir/aes_hal.c.obj	1eb2f951238ca6f5
 921	952	7024156916666787	esp-idf/log/CMakeFiles/__idf_log.dir/log.c.obj	411100ca9a0b9155
-32	233	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader/bootloader.bin	6bf17fc938a8c2d8
+32	251	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader/bootloader.bin	6bf17fc938a8c2d8
 12417	12471	7024157031952139	esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/vfs/vfs_fat.c.obj	8af9b92ff12b2db
 915	958	7024156916822999	esp-idf/log/CMakeFiles/__idf_log.dir/log_freertos.c.obj	e38de7544c2338c8
 1686	1727	7024156924477451	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/ssl_tls13_keys.c.obj	75284c6c5b879ee2
@@ -260,7 +260,7 @@
 4333	4383	7024156951033694	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/port/esp32/freertos/sys_arch.c.obj	c224b7f18fbbeab1
 10562	10620	7024157013206553	esp-idf/driver/CMakeFiles/__idf_driver.dir/gpio/gpio.c.obj	6aaff91a52480faf
 1029	1071	7024156917916492	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/md.c.obj	6b7051b88443b8b2
-49	592	7025793684767582	esp-idf/esp_app_format/CMakeFiles/__idf_esp_app_format.dir/esp_app_desc.c.obj	e596fee610f39430
+56	640	7031837883569485	esp-idf/esp_app_format/CMakeFiles/__idf_esp_app_format.dir/esp_app_desc.c.obj	177ee237260cc001
 5331	5393	7024156961031339	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/esp_supplicant/src/esp_wpa2.c.obj	70edbfab9bc615d4
 1184	1228	7024156919478624	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/oid.c.obj	ae83802f151b151a
 2123	2164	7024156928851423	esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32/ledc_periph.c.obj	266800cc9ce13b67
@@ -314,7 +314,7 @@
 1305	1339	7024156920572117	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/psa_crypto_hash.c.obj	c9cccb2aca762dc8
 3373	3446	7024156941504688	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/lwip/src/api/err.c.obj	cf7120536cb5e5b4
 1319	1375	7024156920884545	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/ssl_client.c.obj	ce57c070509afc07
-12524	12969	7025799423401243	.bin_timestamp	bb5a0350e9c2ffa0
+9282	9586	7031846778223139	.bin_timestamp	bb5a0350e9c2ffa0
 1325	1387	7024156920884545	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/ssl_ciphersuites.c.obj	bd2080be9bd2880c
 1339	1414	7024156921040758	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/ssl_msg.c.obj	813f541e3f6d730d
 1346	1420	7024156921040758	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/ssl_cookie.c.obj	3a865a72205ecf55
@@ -329,7 +329,7 @@
 2333	2389	7024156931038406	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/intr_alloc.c.obj	39581bbdcc0bf9c1
 11007	11077	7024157017892954	esp-idf/driver/CMakeFiles/__idf_driver.dir/pulse_cnt.c.obj	e2c8684d86721df5
 1427	1468	7024156921821821	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/sha256.c.obj	e48fe1443193828a
-702	762	7025793686572371	esp-idf/wifi_station/CMakeFiles/__idf_wifi_station.dir/wifi_station.c.obj	e02450fcbc942310
+769	2908	7031837906029799	esp-idf/wifi_station/CMakeFiles/__idf_wifi_station.dir/wifi_station.c.obj	4d968e8a7554bc3
 11206	11274	7024157019923721	esp-idf/mbedtls/CMakeFiles/__idf_mbedtls.dir/esp_crt_bundle/esp_crt_bundle.c.obj	1b819aced9536e92
 1455	1493	7024156922134247	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/sha512.c.obj	f4501e21fd2ce95f
 1462	1500	7024156922290465	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/timing.c.obj	d2628cea2d7b9430
@@ -379,7 +379,7 @@
 1676	1714	7024156924321234	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/D_/Espressif/frameworks/esp-idf-v5.0.1/components/mbedtls/port/mbedtls_debug.c.obj	e11aaaaedeb0869f
 2453	2504	7024156932131904	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/port/esp32/rtc_time.c.obj	b2bfcbec72ffeedd
 3054	3140	7024156938536640	esp-idf/nvs_flash/CMakeFiles/__idf_nvs_flash.dir/src/nvs_page.cpp.obj	62ac154a6cdfeeef
-32	233	7024157049448041	bootloader-prefix/src/bootloader-stamp/bootloader-build	6bf17fc938a8c2d8
+32	251	7024157049448041	bootloader-prefix/src/bootloader-stamp/bootloader-build	6bf17fc938a8c2d8
 1670	1720	7024156924321234	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/ssl_tls13_server.c.obj	b3815b5866d4cb6e
 1943	2106	7024156928070355	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir	56bbcec501422bbe
 4121	4191	7024156949002928	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/lwip/src/netif/ppp/ipv6cp.c.obj	b5d12a1127c27654
@@ -502,7 +502,7 @@
 2547	2590	7024156933069174	esp-idf/freertos/CMakeFiles/__idf_freertos.dir/FreeRTOS-Kernel/portable/xtensa/xtensa_vector_defaults.S.obj	1fdd37f5911c9d97
 4964	5017	7024156957282225	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/eap_peer/eap_mschapv2.c.obj	1dd7ef5211a22b5
 2539	2599	7024156933069174	esp-idf/freertos/CMakeFiles/__idf_freertos.dir/FreeRTOS-Kernel/portable/xtensa/xtensa_overlay_os_hook.c.obj	a54f01c9e83042ce
-32	233	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	6bf17fc938a8c2d8
+32	251	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	6bf17fc938a8c2d8
 11996	12061	7024157027578179	esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/src/crypto/srp6a/esp_srp.c.obj	c8909d9e56a2072a
 11070	11136	7024157018361595	esp-idf/driver/CMakeFiles/__idf_driver.dir/deprecated/pcnt_legacy.c.obj	e708e8725f6e914d
 5393	5442	7024156961656196	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/esp_supplicant/src/esp_owe.c.obj	237cdd081ab50e4f
@@ -686,10 +686,10 @@
 5587	5636	7024156963530753	esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/src/coexist.c.obj	32d92756034647a8
 11600	11642	7024157023672842	esp-idf/console/CMakeFiles/__idf_console.dir/argtable3/arg_utils.c.obj	6e524771ad070f46
 5595	5647	7024156963530753	esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/src/mesh_event.c.obj	ddef038079222c6a
-32	233	7024157049448041	bootloader/bootloader.map	6bf17fc938a8c2d8
+32	251	7024157049448041	bootloader/bootloader.map	6bf17fc938a8c2d8
 5578	5658	7024156963686964	esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/src/smartconfig_ack.c.obj	73ade9669d7dc3cd
 5628	5679	7024156963843181	esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/src/wifi_default_ap.c.obj	8199072a0567376f
-925	999	7025736838164810	esp-idf/main/libmain.a	b50d94c6a43d27fa
+3508	3599	7031837913454646	esp-idf/main/libmain.a	b50d94c6a43d27fa
 5636	5687	7024156963999396	esp-idf/http_parser/CMakeFiles/__idf_http_parser.dir/http_parser.c.obj	9ec9f0906a8e7dce
 11509	11553	7024157022735558	esp-idf/console/CMakeFiles/__idf_console.dir/argtable3/arg_end.c.obj	ea063ef8f5b59858
 11979	12033	7024157027421959	esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/src/security/security1.c.obj	4d5bc2ef3803bad3
@@ -745,7 +745,7 @@
 11258	11306	7024157020236150	esp-idf/app_trace/CMakeFiles/__idf_app_trace.dir/app_trace_util.c.obj	a8779760af9e22dc
 13350	13522	7024157042418424	esp-idf/spiffs/libspiffs.a	aedc319ff7c0a8b1
 9192	9290	7024157000240855	esp-idf/esp_partition/libesp_partition.a	4ea089c0141acc43
-592	691	7025793685878820	esp-idf/esp_app_format/libesp_app_format.a	bb8aa7766d4179ce
+640	737	7031837884728059	esp-idf/esp_app_format/libesp_app_format.a	bb8aa7766d4179ce
 12439	12479	7024157031952139	esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/port/freertos/ffsystem.c.obj	d79760a743e005ca
 9435	9538	7024157002740268	esp-idf/mbedtls/mbedtls/library/libmbedtls.a	9f3105545fb6ac11
 11675	11737	7024157024297690	esp-idf/esp_lcd/CMakeFiles/__idf_esp_lcd.dir/src/esp_lcd_panel_io.c.obj	9d2f11d6998e53ff
@@ -768,7 +768,7 @@
 10692	10767	7024157014768693	esp-idf/driver/CMakeFiles/__idf_driver.dir/i2c.c.obj	8d18a06b0a32ed7f
 13360	13413	7024157041168716	esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/src/wifi_scan.c.obj	9319d572467cd018
 10721	10810	7024157014924898	esp-idf/driver/CMakeFiles/__idf_driver.dir/spi_common.c.obj	f3d87417c1bb4552
-32	233	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader/bootloader.map	6bf17fc938a8c2d8
+32	251	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader/bootloader.map	6bf17fc938a8c2d8
 10760	10827	7024157015237328	esp-idf/driver/CMakeFiles/__idf_driver.dir/mcpwm/mcpwm_com.c.obj	1083d43476d853ab
 10767	10835	7024157015393538	esp-idf/driver/CMakeFiles/__idf_driver.dir/mcpwm/mcpwm_gen.c.obj	86944de3a860d2a7
 10775	10843	7024157015393538	esp-idf/driver/CMakeFiles/__idf_driver.dir/mcpwm/mcpwm_cap.c.obj	ebfe5b850c1af444
@@ -836,19 +836,19 @@
 12463	12522	7024157032264570	esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/src/ff.c.obj	2aa0e2818f30ee87
 12370	12561	7024157032576994	esp-idf/xtensa/libxtensa.a	d5a6d7d9bd665d95
 12523	12570	7024157032733210	esp-idf/json/CMakeFiles/__idf_json.dir/cJSON/cJSON_Utils.c.obj	539e59723d79ca3f
-12541	12597	7024157033045630	esp-idf/ads1115/CMakeFiles/__idf_ads1115.dir/ads1115.c.obj	adea933bc2b618a9
+744	3125	7031837908442175	esp-idf/ads1115/CMakeFiles/__idf_ads1115.dir/ads1115.c.obj	5ffb17072eb56879
 12589	12719	7024157034451553	esp-idf/esp_hid/libesp_hid.a	2069ad9199cbd1de
 12571	12739	7024157034451553	esp-idf/unity/libunity.a	a73fed39499830f9
 12597	12775	7024157034920195	esp-idf/esp_lcd/libesp_lcd.a	70a9d1d3e5bec0fa
 12776	12957	7024157036638537	esp-idf/wear_levelling/libwear_levelling.a	20f53c822beeaf4e
-56	794	7025768694861453	esp-idf/mqtt/CMakeFiles/__idf_mqtt.dir/mqtt_c.c.obj	1c27629f95d07dd6
+750	3344	7031837910654120	esp-idf/mqtt/CMakeFiles/__idf_mqtt.dir/mqtt_c.c.obj	37645d7ea54bfa47
 12925	13076	7024157037888241	esp-idf/sdmmc/libsdmmc.a	b3eea960bdc942ab
 12894	13096	7024157038044454	esp-idf/protocomm/libprotocomm.a	2b2382206305cfa
-12957	13104	7024157038044454	esp-idf/ads1115/libads1115.a	f87a04b0d8458e4d
+3125	3225	7031837909647835	esp-idf/ads1115/libads1115.a	f87a04b0d8458e4d
 13069	13113	7024157038200670	esp-idf/perfmon/CMakeFiles/__idf_perfmon.dir/xtensa_perfmon_masks.c.obj	f8b673bbb33d30f2
 12947	13151	7024157038669310	esp-idf/json/libjson.a	19c3a93dc8a22a44
 13076	13218	7024157039450376	esp-idf/fatfs/libfatfs.a	20cfcca718e06903
-794	883	7025768695869383	esp-idf/mqtt/libmqtt.a	4aaecce51695a173
+3344	3424	7031837911660889	esp-idf/mqtt/libmqtt.a	4aaecce51695a173
 13258	13304	7024157040231437	esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/spiffs/src/spiffs_check.c.obj	c7a47f471381821e
 13266	13323	7024157040387654	esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/spiffs/src/spiffs_gc.c.obj	ba9ae17c33fad0fe
 13160	13337	7024157040387654	esp-idf/perfmon/libperfmon.a	cdbb46b16f2e888
@@ -860,60 +860,154 @@
 13397	13432	7024157041637358	esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/proto-c/wifi_constants.pb-c.c.obj	689a92b2c90909d2
 13405	13449	7024157041637358	esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/proto-c/wifi_config.pb-c.c.obj	f558d7e81685cabc
 13413	13458	7024157041793569	esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/src/scheme_softap.c.obj	211079afd08c7336
-76	1144	7025736511218455	esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj	8fc03868a8596df0
-13442	13494	7024157042105999	esp-idf/actuator/CMakeFiles/__idf_actuator.dir/actuator.c.obj	9d4ba1dfd2736cd4
-55	607	7025799299652180	esp-idf/mq2/CMakeFiles/__idf_mq2.dir/mq2.c.obj	ef76b8e7ffd73fb1
-13494	13611	7024157043355703	esp-idf/actuator/libactuator.a	727ad0dd44080620
-608	679	7025799300518925	esp-idf/mq2/libmq2.a	4e97472d0328c56e
+756	3205	7031837909246218	esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj	951e4c7accd689db
+63	606	7031844257951948	esp-idf/actuator/CMakeFiles/__idf_actuator.dir/actuator.c.obj	818231a27f88c408
+38	614	7031846688315409	esp-idf/mq2/CMakeFiles/__idf_mq2.dir/mq2.c.obj	6931dc2c32d068c4
+607	713	7031844259109901	esp-idf/actuator/libactuator.a	727ad0dd44080620
+614	686	7031846689161127	esp-idf/mq2/libmq2.a	4e97472d0328c56e
 2571	14210	7024157049448041	bootloader-prefix/src/bootloader-stamp/bootloader-configure	55cbf59377397357
-32	233	7024157049448041	bootloader/bootloader.bin	6bf17fc938a8c2d8
+32	251	7024157049448041	bootloader/bootloader.bin	6bf17fc938a8c2d8
 21540	21630	7024157123649291	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	2a16041296ea7b15
 21630	21744	7024157124742810	bootloader-prefix/src/bootloader-stamp/bootloader-done	1152a49db054456f
-679	6777	7025799361028831	esp-idf/esp_system/ld/sections.ld	5199d50d1139451b
-679	6777	7025799361028831	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/esp_system/ld/sections.ld	5199d50d1139451b
-5664	5716	7024622399046605	CMakeFiles/node_firmware.elf.dir/project_elf_src_esp32.c.obj	13ded8cb344a2389
-6777	12524	7025799418578377	node_firmware.elf	fffff6ba90b3113a
-12524	12969	7025799423401243	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/.bin_timestamp	bb5a0350e9c2ffa0
-38	161	0	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/esptool_py/CMakeFiles/app_check_size	7d2d73c83a516d06
-234	17162	0	CMakeFiles/flash	293fc8188a483cc4
-234	17162	0	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/CMakeFiles/flash	293fc8188a483cc4
-6	11139	7025822960954634	build.ninja	e32213b05d998bc4
-763	857	7025793687541665	esp-idf/wifi_station/libwifi_station.a	45bbe2a0eb04ee5e
-5	10800	7025822960954634	build.ninja	e32213b05d998bc4
-60	520	7024157049448041	bootloader-prefix/src/bootloader-stamp/bootloader-build	6bf17fc938a8c2d8
-60	520	7024157049448041	bootloader/bootloader.elf	6bf17fc938a8c2d8
-60	520	7024157049448041	bootloader/bootloader.bin	6bf17fc938a8c2d8
-60	520	7024157049448041	bootloader/bootloader.map	6bf17fc938a8c2d8
-60	520	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	6bf17fc938a8c2d8
-60	520	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader/bootloader.elf	6bf17fc938a8c2d8
-60	520	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader/bootloader.bin	6bf17fc938a8c2d8
-60	520	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader/bootloader.map	6bf17fc938a8c2d8
-105	1215	7025822973450294	esp-idf/actuator/CMakeFiles/__idf_actuator.dir/actuator.c.obj	818231a27f88c408
-67	1230	7025822974038719	esp-idf/ads1115/CMakeFiles/__idf_ads1115.dir/ads1115.c.obj	adea933bc2b618a9
-113	1289	7025822974517438	esp-idf/mq2/CMakeFiles/__idf_mq2.dir/mq2.c.obj	ef76b8e7ffd73fb1
-92	1396	7025822975925605	esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj	8fc03868a8596df0
-1230	1402	7025822976194886	esp-idf/ads1115/libads1115.a	f87a04b0d8458e4d
-1402	1524	7025822977478022	esp-idf/actuator/libactuator.a	727ad0dd44080620
-1413	1525	7025822977478022	esp-idf/mq2/libmq2.a	4e97472d0328c56e
-79	1649	7025822978465376	esp-idf/mqtt/CMakeFiles/__idf_mqtt.dir/mqtt_c.c.obj	1c27629f95d07dd6
-1649	1740	7025822979652330	esp-idf/mqtt/libmqtt.a	4aaecce51695a173
-1741	1815	7025822980400321	esp-idf/main/libmain.a	b50d94c6a43d27fa
-1815	8203	7025823043871598	esp-idf/esp_system/ld/sections.ld	5199d50d1139451b
-1815	8203	7025823043871598	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/esp_system/ld/sections.ld	5199d50d1139451b
-8203	14176	7025823103533559	node_firmware.elf	fffff6ba90b3113a
-14176	14635	7025823108579608	.bin_timestamp	bb5a0350e9c2ffa0
-14176	14635	7025823108579608	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/.bin_timestamp	bb5a0350e9c2ffa0
-14635	14759	0	esp-idf/esptool_py/CMakeFiles/app_check_size	7d2d73c83a516d06
-14635	14759	0	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/esptool_py/CMakeFiles/app_check_size	7d2d73c83a516d06
-52	201	0	esp-idf/esptool_py/CMakeFiles/app_check_size	7d2d73c83a516d06
-52	201	0	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/esptool_py/CMakeFiles/app_check_size	7d2d73c83a516d06
-45	294	7024157049448041	bootloader-prefix/src/bootloader-stamp/bootloader-build	6bf17fc938a8c2d8
-45	294	7024157049448041	bootloader/bootloader.elf	6bf17fc938a8c2d8
-45	294	7024157049448041	bootloader/bootloader.bin	6bf17fc938a8c2d8
-45	294	7024157049448041	bootloader/bootloader.map	6bf17fc938a8c2d8
-45	294	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	6bf17fc938a8c2d8
-45	294	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader/bootloader.elf	6bf17fc938a8c2d8
-45	294	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader/bootloader.bin	6bf17fc938a8c2d8
-45	294	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader/bootloader.map	6bf17fc938a8c2d8
+686	4961	7031846731686719	esp-idf/esp_system/ld/sections.ld	5199d50d1139451b
+686	4961	7031846731686719	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/esp_system/ld/sections.ld	5199d50d1139451b
+14445	14519	7031838022636228	CMakeFiles/node_firmware.elf.dir/project_elf_src_esp32.c.obj	6fcb721d6268b222
+4961	9282	7031846774748104	node_firmware.elf	374535a054a0cd56
+9282	9586	7031846778223139	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/.bin_timestamp	bb5a0350e9c2ffa0
+9586	9683	0	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/esptool_py/CMakeFiles/app_check_size	7d2d73c83a516d06
 294	17480	0	CMakeFiles/flash	293fc8188a483cc4
 294	17480	0	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/CMakeFiles/flash	293fc8188a483cc4
+259	15184	7031850791015017	build.ninja	e32213b05d998bc4
+3424	3508	7031837912546979	esp-idf/wifi_station/libwifi_station.a	45bbe2a0eb04ee5e
+1	8587	7031850791015017	build.ninja	e32213b05d998bc4
+37	263	7024157049448041	bootloader-prefix/src/bootloader-stamp/bootloader-build	6bf17fc938a8c2d8
+37	263	7024157049448041	bootloader/bootloader.elf	6bf17fc938a8c2d8
+37	263	7024157049448041	bootloader/bootloader.bin	6bf17fc938a8c2d8
+37	263	7024157049448041	bootloader/bootloader.map	6bf17fc938a8c2d8
+37	263	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	6bf17fc938a8c2d8
+37	263	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader/bootloader.elf	6bf17fc938a8c2d8
+37	263	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader/bootloader.bin	6bf17fc938a8c2d8
+37	263	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader/bootloader.map	6bf17fc938a8c2d8
+48	852	7031850800469023	esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj	951e4c7accd689db
+42	959	7031850801467797	esp-idf/mqtt/CMakeFiles/__idf_mqtt.dir/mqtt_c.c.obj	37645d7ea54bfa47
+960	1043	7031850802470215	esp-idf/mqtt/libmqtt.a	4aaecce51695a173
+1044	1121	7031850803251243	esp-idf/main/libmain.a	b50d94c6a43d27fa
+1122	5598	7031850847625126	esp-idf/esp_system/ld/sections.ld	5199d50d1139451b
+1122	5598	7031850847625126	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/esp_system/ld/sections.ld	5199d50d1139451b
+5598	9803	7031850889630397	node_firmware.elf	374535a054a0cd56
+9804	10135	7031850893321759	.bin_timestamp	bb5a0350e9c2ffa0
+9804	10135	7031850893321759	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/.bin_timestamp	bb5a0350e9c2ffa0
+10135	10225	0	esp-idf/esptool_py/CMakeFiles/app_check_size	7d2d73c83a516d06
+10135	10225	0	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/esptool_py/CMakeFiles/app_check_size	7d2d73c83a516d06
+51	363	7024157049448041	bootloader-prefix/src/bootloader-stamp/bootloader-build	6bf17fc938a8c2d8
+51	363	7024157049448041	bootloader/bootloader.elf	6bf17fc938a8c2d8
+51	363	7024157049448041	bootloader/bootloader.bin	6bf17fc938a8c2d8
+51	363	7024157049448041	bootloader/bootloader.map	6bf17fc938a8c2d8
+51	363	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	6bf17fc938a8c2d8
+51	363	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader/bootloader.elf	6bf17fc938a8c2d8
+51	363	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader/bootloader.bin	6bf17fc938a8c2d8
+51	363	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader/bootloader.map	6bf17fc938a8c2d8
+59	965	7031923028553670	esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj	951e4c7accd689db
+48	235	7024157049448041	bootloader-prefix/src/bootloader-stamp/bootloader-build	6bf17fc938a8c2d8
+48	235	7024157049448041	bootloader/bootloader.elf	6bf17fc938a8c2d8
+48	235	7024157049448041	bootloader/bootloader.bin	6bf17fc938a8c2d8
+48	235	7024157049448041	bootloader/bootloader.map	6bf17fc938a8c2d8
+48	235	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	6bf17fc938a8c2d8
+48	235	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader/bootloader.elf	6bf17fc938a8c2d8
+48	235	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader/bootloader.bin	6bf17fc938a8c2d8
+48	235	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader/bootloader.map	6bf17fc938a8c2d8
+55	698	7031924575938572	esp-idf/wifi_station/CMakeFiles/__idf_wifi_station.dir/wifi_station.c.obj	4d968e8a7554bc3
+698	773	7031924576940884	esp-idf/wifi_station/libwifi_station.a	45bbe2a0eb04ee5e
+773	844	7031924577565789	esp-idf/main/libmain.a	b50d94c6a43d27fa
+844	5694	7031924625828021	esp-idf/esp_system/ld/sections.ld	5199d50d1139451b
+844	5694	7031924625828021	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/esp_system/ld/sections.ld	5199d50d1139451b
+55	249	7024157049448041	bootloader-prefix/src/bootloader-stamp/bootloader-build	6bf17fc938a8c2d8
+55	249	7024157049448041	bootloader/bootloader.elf	6bf17fc938a8c2d8
+55	249	7024157049448041	bootloader/bootloader.bin	6bf17fc938a8c2d8
+55	249	7024157049448041	bootloader/bootloader.map	6bf17fc938a8c2d8
+55	249	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	6bf17fc938a8c2d8
+55	249	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader/bootloader.elf	6bf17fc938a8c2d8
+55	249	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader/bootloader.bin	6bf17fc938a8c2d8
+55	249	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader/bootloader.map	6bf17fc938a8c2d8
+40	264	7024157049448041	bootloader-prefix/src/bootloader-stamp/bootloader-build	6bf17fc938a8c2d8
+40	264	7024157049448041	bootloader/bootloader.elf	6bf17fc938a8c2d8
+40	264	7024157049448041	bootloader/bootloader.bin	6bf17fc938a8c2d8
+40	264	7024157049448041	bootloader/bootloader.map	6bf17fc938a8c2d8
+40	264	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	6bf17fc938a8c2d8
+40	264	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader/bootloader.elf	6bf17fc938a8c2d8
+40	264	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader/bootloader.bin	6bf17fc938a8c2d8
+40	264	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader/bootloader.map	6bf17fc938a8c2d8
+55	816	7031926089928376	esp-idf/wifi_station/CMakeFiles/__idf_wifi_station.dir/wifi_station.c.obj	4d968e8a7554bc3
+50	268	7024157049448041	bootloader-prefix/src/bootloader-stamp/bootloader-build	6bf17fc938a8c2d8
+50	268	7024157049448041	bootloader/bootloader.elf	6bf17fc938a8c2d8
+50	268	7024157049448041	bootloader/bootloader.bin	6bf17fc938a8c2d8
+50	268	7024157049448041	bootloader/bootloader.map	6bf17fc938a8c2d8
+50	268	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	6bf17fc938a8c2d8
+50	268	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader/bootloader.elf	6bf17fc938a8c2d8
+50	268	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader/bootloader.bin	6bf17fc938a8c2d8
+50	268	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader/bootloader.map	6bf17fc938a8c2d8
+60	803	7031926600556775	esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj	951e4c7accd689db
+67	833	7031926600869198	esp-idf/wifi_station/CMakeFiles/__idf_wifi_station.dir/wifi_station.c.obj	4d968e8a7554bc3
+833	904	7031926601715362	esp-idf/wifi_station/libwifi_station.a	45bbe2a0eb04ee5e
+904	963	7031926602249097	esp-idf/main/libmain.a	b50d94c6a43d27fa
+963	5443	7031926646668944	esp-idf/esp_system/ld/sections.ld	5199d50d1139451b
+963	5443	7031926646668944	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/esp_system/ld/sections.ld	5199d50d1139451b
+42	254	7024157049448041	bootloader-prefix/src/bootloader-stamp/bootloader-build	6bf17fc938a8c2d8
+42	254	7024157049448041	bootloader/bootloader.elf	6bf17fc938a8c2d8
+42	254	7024157049448041	bootloader/bootloader.bin	6bf17fc938a8c2d8
+42	254	7024157049448041	bootloader/bootloader.map	6bf17fc938a8c2d8
+42	254	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	6bf17fc938a8c2d8
+42	254	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader/bootloader.elf	6bf17fc938a8c2d8
+42	254	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader/bootloader.bin	6bf17fc938a8c2d8
+42	254	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader/bootloader.map	6bf17fc938a8c2d8
+63	825	7031928399230776	esp-idf/wifi_station/CMakeFiles/__idf_wifi_station.dir/wifi_station.c.obj	4d968e8a7554bc3
+33	244	7024157049448041	bootloader-prefix/src/bootloader-stamp/bootloader-build	6bf17fc938a8c2d8
+33	244	7024157049448041	bootloader/bootloader.elf	6bf17fc938a8c2d8
+33	244	7024157049448041	bootloader/bootloader.bin	6bf17fc938a8c2d8
+33	244	7024157049448041	bootloader/bootloader.map	6bf17fc938a8c2d8
+33	244	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	6bf17fc938a8c2d8
+33	244	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader/bootloader.elf	6bf17fc938a8c2d8
+33	244	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader/bootloader.bin	6bf17fc938a8c2d8
+33	244	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader/bootloader.map	6bf17fc938a8c2d8
+38	775	7031930600089220	esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj	951e4c7accd689db
+45	988	7031930602065705	esp-idf/wifi_station/CMakeFiles/__idf_wifi_station.dir/wifi_station.c.obj	4d968e8a7554bc3
+988	1054	7031930603038495	esp-idf/wifi_station/libwifi_station.a	45bbe2a0eb04ee5e
+1054	1114	7031930603728406	esp-idf/main/libmain.a	b50d94c6a43d27fa
+1114	5520	7031930647438226	esp-idf/esp_system/ld/sections.ld	5199d50d1139451b
+1114	5520	7031930647438226	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/esp_system/ld/sections.ld	5199d50d1139451b
+5520	9911	7031930691371695	node_firmware.elf	374535a054a0cd56
+9911	10277	7031930695379574	.bin_timestamp	bb5a0350e9c2ffa0
+9911	10277	7031930695379574	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/.bin_timestamp	bb5a0350e9c2ffa0
+10277	10384	0	esp-idf/esptool_py/CMakeFiles/app_check_size	7d2d73c83a516d06
+10277	10384	0	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/esptool_py/CMakeFiles/app_check_size	7d2d73c83a516d06
+58	283	7024157049448041	bootloader-prefix/src/bootloader-stamp/bootloader-build	6bf17fc938a8c2d8
+58	283	7024157049448041	bootloader/bootloader.elf	6bf17fc938a8c2d8
+58	283	7024157049448041	bootloader/bootloader.bin	6bf17fc938a8c2d8
+58	283	7024157049448041	bootloader/bootloader.map	6bf17fc938a8c2d8
+58	283	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	6bf17fc938a8c2d8
+58	283	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader/bootloader.elf	6bf17fc938a8c2d8
+58	283	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader/bootloader.bin	6bf17fc938a8c2d8
+58	283	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader/bootloader.map	6bf17fc938a8c2d8
+66	567	7031933955071614	esp-idf/actuator/CMakeFiles/__idf_actuator.dir/actuator.c.obj	818231a27f88c408
+567	636	7031933955934810	esp-idf/actuator/libactuator.a	727ad0dd44080620
+72	882	7031933958293376	esp-idf/mqtt/CMakeFiles/__idf_mqtt.dir/mqtt_c.c.obj	37645d7ea54bfa47
+882	943	7031933959074497	esp-idf/mqtt/libmqtt.a	4aaecce51695a173
+943	5622	7031934005407261	esp-idf/esp_system/ld/sections.ld	5199d50d1139451b
+943	5622	7031934005407261	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/esp_system/ld/sections.ld	5199d50d1139451b
+50	102	7031935170267660	esp-idf/mqtt/CMakeFiles/__idf_mqtt.dir/mqtt_c.c.obj	37645d7ea54bfa47
+103	188	7031935171111857	esp-idf/mqtt/libmqtt.a	4aaecce51695a173
+42	250	7024157049448041	bootloader-prefix/src/bootloader-stamp/bootloader-build	6bf17fc938a8c2d8
+42	250	7024157049448041	bootloader/bootloader.elf	6bf17fc938a8c2d8
+42	250	7024157049448041	bootloader/bootloader.bin	6bf17fc938a8c2d8
+42	250	7024157049448041	bootloader/bootloader.map	6bf17fc938a8c2d8
+42	250	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	6bf17fc938a8c2d8
+42	250	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader/bootloader.elf	6bf17fc938a8c2d8
+42	250	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader/bootloader.bin	6bf17fc938a8c2d8
+42	250	7024157049448041	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/bootloader/bootloader.map	6bf17fc938a8c2d8
+188	4735	7031935216237595	esp-idf/esp_system/ld/sections.ld	5199d50d1139451b
+188	4735	7031935216237595	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/esp_system/ld/sections.ld	5199d50d1139451b
+4735	9041	7031935259269839	node_firmware.elf	374535a054a0cd56
+9042	9371	7031935262806553	.bin_timestamp	bb5a0350e9c2ffa0
+9042	9371	7031935262806553	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/.bin_timestamp	bb5a0350e9c2ffa0
+9371	9461	0	esp-idf/esptool_py/CMakeFiles/app_check_size	7d2d73c83a516d06
+9371	9461	0	D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/esptool_py/CMakeFiles/app_check_size	7d2d73c83a516d06

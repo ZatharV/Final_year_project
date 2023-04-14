@@ -15,7 +15,7 @@ extern "C" {
 #include "esp_timer.h"
 
 
-// In ads1115.h
+
 typedef struct{
     float sensor_data1;
     float sensor_data2;
@@ -29,7 +29,7 @@ typedef struct{
 } payload_t;
 
 
-// In ads1115.h
+
 extern payload_t payload;
 
 typedef enum { // register address

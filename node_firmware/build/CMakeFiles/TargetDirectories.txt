@@ -547,6 +547,13 @@ D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/json/CMake
 D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/json/CMakeFiles/install.dir
 D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/json/CMakeFiles/install/local.dir
 D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/json/CMakeFiles/install/strip.dir
+D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/actuator/CMakeFiles/__idf_actuator.dir
+D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/actuator/CMakeFiles/edit_cache.dir
+D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/actuator/CMakeFiles/rebuild_cache.dir
+D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/actuator/CMakeFiles/list_install_components.dir
+D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/actuator/CMakeFiles/install.dir
+D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/actuator/CMakeFiles/install/local.dir
+D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/actuator/CMakeFiles/install/strip.dir
 D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/ads1115/CMakeFiles/__idf_ads1115.dir
 D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/ads1115/CMakeFiles/edit_cache.dir
 D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/ads1115/CMakeFiles/rebuild_cache.dir
@@ -608,13 +615,6 @@ D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/main/CMake
 D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/main/CMakeFiles/install.dir
 D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/main/CMakeFiles/install/local.dir
 D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/main/CMakeFiles/install/strip.dir
-D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/actuator/CMakeFiles/__idf_actuator.dir
-D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/actuator/CMakeFiles/edit_cache.dir
-D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/actuator/CMakeFiles/rebuild_cache.dir
-D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/actuator/CMakeFiles/list_install_components.dir
-D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/actuator/CMakeFiles/install.dir
-D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/actuator/CMakeFiles/install/local.dir
-D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/actuator/CMakeFiles/install/strip.dir
 D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/mq2/CMakeFiles/__idf_mq2.dir
 D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/mq2/CMakeFiles/edit_cache.dir
 D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/mq2/CMakeFiles/rebuild_cache.dir

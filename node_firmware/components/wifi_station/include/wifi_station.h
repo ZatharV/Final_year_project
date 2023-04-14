@@ -5,6 +5,7 @@ extern "C" {
 #ifndef WIFI_STATION
 #define WIFI_STATION
 
+extern bool MY_FLAG;
 void wifi_station_init(void);
 
 #endif 

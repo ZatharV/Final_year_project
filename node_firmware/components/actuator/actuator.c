@@ -23,32 +23,40 @@ static void actuator_setup(void)
     gpio_set_direction(BUZZER, GPIO_MODE_OUTPUT);
 }
 
-
-static void actuator_task(void* param)
+void blink_led(void)
 {
-
-    static int ON = 0;
-    while(true)
+    for (int i=0; i<6 ; i++)
     {
+        int ON = 0;
         ON = !ON;
         gpio_set_level(LED_PIN, ON);
-        gpio_set_level(MOTOR_PIN, ON);
-        ((payload_t*)param)->sensor_data8=(float)ON;
-        gpio_set_level(BUZZER, ON);
-        vTaskDelay(1000/ portTICK_PERIOD_MS);
-        ESP_LOGI(TAG,"RUNNING MTOR LED BUZZER");
+        vTaskDelay(500/ portTICK_PERIOD_MS);
 
     }
-    
 }
 
-void actuator_init(void)
+void buzzer_on(void)
 {
     actuator_setup();
-    xTaskCreate((void*)actuator_task, "run the actuators", 2048, (void*)&payload, 2, NULL); 
-
+    gpio_set_level(BUZZER, 1);
+    ESP_LOGI(TAG, "BUZZER IS ON");
 }
 
+void buzzer_off(void)
+{
+    actuator_setup();
+    gpio_set_level(BUZZER, 0);
+}
 
+void motor_on(void)
+{
+    actuator_setup();
+    gpio_set_level(MOTOR_PIN, 1);
+    ESP_LOGI(TAG, "MOTOR IS ON");
+}    
 
-    
+void motor_off(void)
+{
+    actuator_setup();
+    gpio_set_level(MOTOR_PIN, 0);
+}

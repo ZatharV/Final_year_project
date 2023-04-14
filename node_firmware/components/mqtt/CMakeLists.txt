@@ -14,4 +14,5 @@ idf_component_register(SRCS "mqtt_c.c"
                        REQUIRES esp_system
                        REQUIRES esp_wifi
                        REQUIRES espmqtt
+                       REQUIRES actuator
                       )

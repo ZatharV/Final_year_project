@@ -1,11 +1,3 @@
-/* WiFi station Example
-
-   This example code is in the Public Domain (or CC0 licensed, at your option.)
-
-   Unless required by applicable law or agreed to in writing, this
-   software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
-   CONDITIONS OF ANY KIND, either express or implied.
-*/
 #include <string.h>
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
@@ -21,15 +13,10 @@
 
 #include "wifi_station.h"
 
+bool MY_FLAG = false;
 
-
-/* The examples use WiFi configuration that you can set via project configuration menu
-
-   If you'd rather not, just change the below entries to strings with
-   the config you want - ie #define EXAMPLE_WIFI_SSID "mywifissid"
-*/
-// #define EXAMPLE_ESP_WIFI_SSID      "SBC_LAB"
-// #define EXAMPLE_ESP_WIFI_PASS      "sbc@123"
+#define WIFI_SSID      "Messi"
+#define WIFI_PASS      "mmmmmmmm"
 #define EXAMPLE_ESP_MAXIMUM_RETRY  5
 
 #if CONFIG_ESP_WIFI_AUTH_OPEN
@@ -113,15 +100,8 @@ void wifi_init_sta(void)
 
     wifi_config_t wifi_config = {
         .sta = {
-            .ssid = "4g jio",
-            .password = "Messi@10i",
-            /* Authmode threshold resets to WPA2 as default if password matches WPA2 standards (pasword len => 8).
-             * If you want to connect the device to deprecated WEP/WPA networks, Please set the threshold value
-             * to WIFI_AUTH_WEP/WIFI_AUTH_WPA_PSK and set the password with length and format matching to
-	     * WIFI_AUTH_WEP/WIFI_AUTH_WPA_PSK standards.
-             */
-            //.threshold.authmode = ESP_WIFI_SCAN_AUTH_MODE_THRESHOLD,
-            //.sae_pwe_h2e = WPA3_SAE_PWE_BOTH,
+            .ssid = WIFI_SSID,
+            .password = WIFI_PASS,
         },
     };
     ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA) );
@@ -129,9 +109,6 @@ void wifi_init_sta(void)
     ESP_ERROR_CHECK(esp_wifi_start() );
 
     ESP_LOGI(TAG, "wifi_init_sta finished.");
-
-    /* Waiting until either the connection is established (WIFI_CONNECTED_BIT) or connection failed for the maximum
-     * number of re-tries (WIFI_FAIL_BIT). The bits are set by event_handler() (see above) */
     EventBits_t bits = xEventGroupWaitBits(s_wifi_event_group,
             WIFI_CONNECTED_BIT | WIFI_FAIL_BIT,
             pdFALSE,
@@ -141,11 +118,14 @@ void wifi_init_sta(void)
     /* xEventGroupWaitBits() returns the bits before the call returned, hence we can test which event actually
      * happened. */
     if (bits & WIFI_CONNECTED_BIT) {
-        ESP_LOGI(TAG, "connected to ap SSID:%s password:%s",
-                 "SBC_LAB", "sbclab@123");
+        ESP_LOGI(TAG, "succesfully connected to ap SSID:%s password:%s now can start with other functions",
+                 WIFI_SSID, WIFI_PASS);
+        MY_FLAG = true;
+        
+        
     } else if (bits & WIFI_FAIL_BIT) {
         ESP_LOGI(TAG, "Failed to connect to SSID:%s, password:%s",
-                 "SBC_LAB", "sbclab@123");
+                 WIFI_SSID, WIFI_PASS);
     } else {
         ESP_LOGE(TAG, "UNEXPECTED EVENT");
     }

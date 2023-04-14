@@ -7,7 +7,11 @@ extern "C" {
 
 
 
-void actuator_init();
+void blink_led(void);
+void buzzer_on(void);
+void buzzer_off(void);
+void motor_on(void);
+void motor_off(void);
 
 #endif // ifdef ADS1115_H
 

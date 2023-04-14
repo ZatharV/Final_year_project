@@ -17,13 +17,15 @@ void app_main(void)
 {
     wifi_station_init();
     vTaskDelay(10000 / portTICK_PERIOD_MS);
+    blink_led();
+    while (!MY_FLAG){
+        printf("Waiting to connect to WIFI");
+    }
+    printf("Connected");
     adc_init();
     battery_init();
-    actuator_init(); 
-    mqtt_init();  
+    mqtt_init(); 
 
-
-    
-    
+     
 }
 

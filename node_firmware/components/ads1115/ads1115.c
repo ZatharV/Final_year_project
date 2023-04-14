@@ -4,6 +4,7 @@
 #include "freertos/queue.h"
 #include "esp_log.h"
 #include "esp_timer.h"
+#include "actuator.h"
 
 #define I2C_MASTER_NUM              0
 #define I2C_MASTER_SCL_IO           22      
@@ -265,9 +266,10 @@ void adc_log(void* pvParameters)
 
   ESP_LOGI(TAG, "Initalization structures completed");
 
-
+  
   while (1)
     {
+
 
         value1 = ads1115_get_raw(&ads1);
         ESP_LOGI(TAG, "count  is : %d", value1);
@@ -277,6 +279,15 @@ void adc_log(void* pvParameters)
         ((payload_t*)pvParameters)->sensor_data1 = r1;
         ESP_LOGI(TAG, "Temperature value  is : %f", r1);
         vTaskDelay(pdMS_TO_TICKS(800));
+        if (r1 > 80)
+        {
+          buzzer_on();
+        
+        }
+        else
+        {
+          buzzer_off(); 
+        }
 
         value2 = ads1115_get_raw(&ads2);
         ESP_LOGI(TAG, "count  is : %d", value2);
