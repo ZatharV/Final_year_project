@@ -5,7 +5,7 @@ extern "C" {
 #ifndef MQTT_H
 #define MQTT_H
 
-#include "mqtt_client.h"
+// #include "mqtt_client.h"
 
 void mqtt_init(void);
 

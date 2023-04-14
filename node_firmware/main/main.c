@@ -11,21 +11,24 @@
 #include "mqtt_client.h"
 
 
-
+static const char *TAG = "main";
 
 void app_main(void)
 {
-    wifi_station_init();
-    vTaskDelay(10000 / portTICK_PERIOD_MS);
+    ESP_LOGI(TAG, "Initializing wifi");
     blink_led();
-    while (!MY_FLAG){
-        printf("Waiting to connect to WIFI");
-    }
-    printf("Connected");
-    adc_init();
-    battery_init();
-    mqtt_init(); 
+    wifi_station_init();
+    blink_led();
+    if (MY_FLAG)
+    {
+        blink_led();
+        printf("Connected now wifi initializing sensors... ");
 
-     
+        adc_init();
+        battery_init();
+        mqtt_init();
+    }
+
+    ESP_LOGE(TAG, "Failed to connect to wifi maximum tries exceeded! ");
 }
 

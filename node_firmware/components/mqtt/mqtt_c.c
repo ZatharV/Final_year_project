@@ -100,7 +100,7 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
 
                         vTaskDelay(500 / portTICK_PERIOD_MS);
                         sprintf(sensor_char7, "%g", payload.sensor_data7);
-                        esp_mqtt_client_publish(client, "/topic/qos1", sensor_char7, 0, 1, 0);
+                        esp_mqtt_client_publish(client, "/topic/qos1", "sensor_char7", 0, 1, 0);
                         printf("Data sent7: %s", sensor_char7);
                         vTaskDelay(100 / portTICK_PERIOD_MS);
 
@@ -109,7 +109,7 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
                         esp_mqtt_client_publish(client, "/topic/qos1", sensor_char8, 0, 1, 0);
                         printf("Data sent8: %s", sensor_char8);
                         vTaskDelay(100 / portTICK_PERIOD_MS);
-                        //esp_mqtt_client_subscribe(client, "/topic/qos0", 1);
+                        esp_mqtt_client_subscribe(client, "/topic/qos0", 1);
                     }
         }
         
