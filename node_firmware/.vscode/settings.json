@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "ads1115.h": "c",
+        "esp_adc_cal.h": "c",
+        "curve_fitting_coefficients.h": "c",
+        "task.h": "c",
+        "sys.h": "c",
+        "actuator.h": "c"
+    }
+}
