@@ -32,7 +32,7 @@ typedef struct{
 
 extern payload_t payload;
 
-typedef enum { // register address
+typedef enum { 
   ADS1115_CONVERSION_REGISTER_ADDR = 0,
   ADS1115_CONFIG_REGISTER_ADDR,
   ADS1115_LO_THRESH_REGISTER_ADDR,
@@ -40,7 +40,7 @@ typedef enum { // register address
   ADS1115_MAX_REGISTER_ADDR
 } ads1115_register_addresses_t;
 
-typedef enum { // multiplex options
+typedef enum { 
   ADS1115_MUX_0_1 = 0,
   ADS1115_MUX_0_3,
   ADS1115_MUX_1_3,
@@ -51,7 +51,7 @@ typedef enum { // multiplex options
   ADS1115_MUX_3_GND,
 } ads1115_mux_t;
 
-typedef enum { // full-scale resolution options
+typedef enum { 
   ADS1115_FSR_6_144 = 0,
   ADS1115_FSR_4_096,
   ADS1115_FSR_2_048,
@@ -60,7 +60,7 @@ typedef enum { // full-scale resolution options
   ADS1115_FSR_0_256,
 } ads1115_fsr_t;
 
-typedef enum { // samples per second
+typedef enum { 
   ADS1115_SPS_8 = 0,
   ADS1115_SPS_16,
   ADS1115_SPS_32,
@@ -78,23 +78,23 @@ typedef enum {
 
 typedef union { // configuration register
   struct {
-    uint16_t COMP_QUE:2;  // bits 0..  1  Comparator queue and disable
-    uint16_t COMP_LAT:1;  // bit  2       Latching Comparator
-    uint16_t COMP_POL:1;  // bit  3       Comparator Polarity
-    uint16_t COMP_MODE:1; // bit  4       Comparator Mode
-    uint16_t DR:3;        // bits 5..  7  Data rate
-    uint16_t MODE:1;      // bit  8       Device operating mode
-    uint16_t PGA:3;       // bits 9..  11 Programmable gain amplifier configuration
-    uint16_t MUX:3;       // bits 12.. 14 Input multiplexer configuration
-    uint16_t OS:1;        // bit  15      Operational status or single-shot conversion start
+    uint16_t COMP_QUE:2;  
+    uint16_t COMP_LAT:1;  
+    uint16_t COMP_POL:1;  
+    uint16_t COMP_MODE:1; 
+    uint16_t DR:3;        
+    uint16_t MODE:1;      
+    uint16_t PGA:3;       
+    uint16_t MUX:3;       
+    uint16_t OS:1;        
   } bit;
   uint16_t reg;
 } ADS1115_CONFIG_REGISTER_Type;
 
 typedef struct {
-  bool in_use; // gpio is used
-  gpio_num_t pin; // ready pin
-  QueueHandle_t gpio_evt_queue; // pin triggered queue
+  bool in_use; 
+  gpio_num_t pin; 
+  QueueHandle_t gpio_evt_queue; 
 } ads1115_rdy_pin_t;
 
 typedef struct {
@@ -102,9 +102,9 @@ typedef struct {
   i2c_port_t i2c_port;
   int address;
   ads1115_rdy_pin_t rdy_pin;
-  ads1115_register_addresses_t last_reg; // save last accessed register
-  bool changed; // save if a value was changed or not
-  TickType_t max_ticks; // maximum wait ticks for i2c bus
+  ads1115_register_addresses_t last_reg; 
+  bool changed; 
+  TickType_t max_ticks; 
 } ads1115_t;
 
 // initialize device

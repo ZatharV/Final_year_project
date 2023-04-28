@@ -52,14 +52,14 @@ float MQCalibration(int mq_pin)
   int i;
   float val=0;
 
-  for (i=0;i<CALIBARAION_SAMPLE_TIMES;i++) {            //take multiple samples
+  for (i=0;i<CALIBARAION_SAMPLE_TIMES;i++) {            
     val += MQResistanceCalculation(adc1_get_raw(ADC1_CHANNEL_6));
     vTaskDelay(pdMS_TO_TICKS(CALIBRATION_SAMPLE_INTERVAL));
   }
-  val = val/CALIBARAION_SAMPLE_TIMES;                   //calculate the average value
+  val = val/CALIBARAION_SAMPLE_TIMES;                   
 
-  val = val/RO_CLEAN_AIR_FACTOR;                        //divided by RO_CLEAN_AIR_FACTOR yields the Ro 
-                                                        //according to the chart in the datasheet 
+  val = val/RO_CLEAN_AIR_FACTOR;                       
+                                                         
 
   return val; 
 }
@@ -146,6 +146,8 @@ static void battery_setup()
 
 static void battery_get_voltage_task(void* pvParameters)
 {
+    bool myflag1 = true;
+    bool myflag2 = true;
     while (1) 
     {
         ESP_ERROR_CHECK(adc_cali_raw_to_voltage(cali_handle, adc1_get_raw(ADC1_CHANNEL_6), (int*)&voltage));
@@ -157,21 +159,31 @@ static void battery_get_voltage_task(void* pvParameters)
         ESP_LOGI(TAG,"CO in ppm: %d\n", MQGetGasPercentage(MQRead(MQ_PIN)/Ro,GAS_CO));
         ESP_LOGI(TAG,"gas smoke in ppm:  %d\n", MQGetGasPercentage(MQRead(MQ_PIN)/Ro,GAS_SMOKE));
         ESP_LOGI(TAG,"Ananlog RAW READING FROM MQ2 : %d\n",adc1_get_raw(ADC1_CHANNEL_6));
-        ((payload_t*)pvParameters)->sensor_data5=(float)adc1_get_raw(ADC1_CHANNEL_6);
+        ((payload_t*)pvParameters)->sensor_data5=(float)lpg;
         ((payload_t*)pvParameters)->sensor_data6=(float)co;
         ((payload_t*)pvParameters)->sensor_data7=(float)smoke;
-        if (smoke > 200)
+        if (smoke > 100)
         {
-          motor_on();
-          ((payload_t*)pvParameters)->sensor_data8 = 1;
+          myflag2 = true;
+          if (myflag1 == true)
+          {
+            motor_on();
+            ((payload_t*)pvParameters)->sensor_data8 = 1;
+            myflag1 = false;
+          }
+          
         
         }
         else
         {
-          motor_off(); 
-          ((payload_t*)pvParameters)->sensor_data8 = 0;
+          myflag1 = true;
+          if (myflag2 == true)
+          {
+            motor_off(); 
+            ((payload_t*)pvParameters)->sensor_data8 = 0;
+            myflag2 = false;
+          } 
         }
-        ESP_LOGI(TAG,"voltage from mq2 is %.2f", payload.sensor_data6);
         vTaskDelay(pdMS_TO_TICKS(1000));
     }
 }

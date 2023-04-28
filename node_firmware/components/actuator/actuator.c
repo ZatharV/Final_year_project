@@ -25,9 +25,11 @@ static void actuator_setup(void)
 
 void blink_led(void)
 {
+    ESP_LOGI(TAG, "Blinking LED...");
+    actuator_setup();
+    int ON = 0;
     for (int i=0; i<6 ; i++)
     {
-        int ON = 0;
         ON = !ON;
         gpio_set_level(LED_PIN, ON);
         vTaskDelay(500/ portTICK_PERIOD_MS);
@@ -46,6 +48,7 @@ void buzzer_off(void)
 {
     actuator_setup();
     gpio_set_level(BUZZER, 0);
+    ESP_LOGI(TAG, "BUZZER IS OFF");
 }
 
 void motor_on(void)
@@ -59,4 +62,5 @@ void motor_off(void)
 {
     actuator_setup();
     gpio_set_level(MOTOR_PIN, 0);
+    ESP_LOGI(TAG, "MOTOR IS OFF");
 }

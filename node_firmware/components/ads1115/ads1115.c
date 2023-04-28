@@ -28,12 +28,12 @@ float r3;
 float r4;
 
 static const char* TAG = "ADS1115";
-// payload_t payload;
+
 payload_t payload;
 
 static void IRAM_ATTR gpio_isr_handler(void* arg) {
-  const bool ret = 1; // dummy value to pass to queue
-  QueueHandle_t gpio_evt_queue = (QueueHandle_t)arg; // find which queue to write
+  const bool ret = 1; 
+  QueueHandle_t gpio_evt_queue = (QueueHandle_t)arg; 
   xQueueSendFromISR(gpio_evt_queue, &ret, NULL);
 }
 
@@ -42,17 +42,17 @@ static esp_err_t ads1115_write_register(ads1115_t* ads, ads1115_register_address
   esp_err_t ret;
   uint8_t out[2];
 
-  out[0] = data >> 8; // get 8 greater bits
-  out[1] = data & 0xFF; // get 8 lower bits
+  out[0] = data >> 8; 
+  out[1] = data & 0xFF; 
   cmd = i2c_cmd_link_create();
-  i2c_master_start(cmd); // generate a start command
-  i2c_master_write_byte(cmd,(ads->address<<1) | I2C_MASTER_WRITE,1); // specify address and write command
-  i2c_master_write_byte(cmd,reg,1); // specify register
-  i2c_master_write(cmd,out,2,1); // write it
-  i2c_master_stop(cmd); // generate a stop command
-  ret = i2c_master_cmd_begin(ads->i2c_port, cmd, ads->max_ticks); // send the i2c command
+  i2c_master_start(cmd); 
+  i2c_master_write_byte(cmd,(ads->address<<1) | I2C_MASTER_WRITE,1); 
+  i2c_master_write_byte(cmd,reg,1); 
+  i2c_master_write(cmd,out,2,1); 
+  i2c_master_stop(cmd); 
+  ret = i2c_master_cmd_begin(ads->i2c_port, cmd, ads->max_ticks); 
   i2c_cmd_link_delete(cmd);
-  ads->last_reg = reg; // change the internally saved register
+  ads->last_reg = reg; 
   return ret;
 }
 
@@ -60,7 +60,7 @@ static esp_err_t ads1115_read_register(ads1115_t* ads, ads1115_register_addresse
   i2c_cmd_handle_t cmd;
   esp_err_t ret;
 
-  if(ads->last_reg != reg) { // if we're not on the correct register, change it
+  if(ads->last_reg != reg) {
     cmd = i2c_cmd_link_create();
     i2c_master_start(cmd);
     i2c_master_write_byte(cmd,(ads->address<<1) | I2C_MASTER_WRITE,1);
@@ -71,18 +71,18 @@ static esp_err_t ads1115_read_register(ads1115_t* ads, ads1115_register_addresse
     ads->last_reg = reg;
   }
   cmd = i2c_cmd_link_create();
-  i2c_master_start(cmd); // generate start command
-  i2c_master_write_byte(cmd,(ads->address<<1) | I2C_MASTER_READ,1); // specify address and read command
-  i2c_master_read(cmd, data, len, 0); // read all wanted data
-  i2c_master_stop(cmd); // generate stop command
-  ret = i2c_master_cmd_begin(ads->i2c_port, cmd, ads->max_ticks); // send the i2c command
+  i2c_master_start(cmd); 
+  i2c_master_write_byte(cmd,(ads->address<<1) | I2C_MASTER_READ,1);
+  i2c_master_read(cmd, data, len, 0); 
+  i2c_master_stop(cmd); 
+  ret = i2c_master_cmd_begin(ads->i2c_port, cmd, ads->max_ticks); 
   i2c_cmd_link_delete(cmd);
   return ret;
 }
 
 ads1115_t ads1115_config(i2c_port_t i2c_port, uint8_t address) {
-  ads1115_t ads; // setup configuration with default values
-  ads.config.bit.OS = 1; // always start conversion
+  ads1115_t ads; 
+  ads.config.bit.OS = 1; 
   ads.config.bit.MUX = ADS1115_MUX_0_GND;
   ads.config.bit.PGA = ADS1115_FSR_4_096;
   ads.config.bit.MODE = ADS1115_MODE_SINGLE;
@@ -92,13 +92,13 @@ ads1115_t ads1115_config(i2c_port_t i2c_port, uint8_t address) {
   ads.config.bit.COMP_LAT = 0;
   ads.config.bit.COMP_QUE = 0b11;
 
-  ads.i2c_port = i2c_port; // save i2c port
-  ads.address = address; // save i2c address
-  ads.rdy_pin.in_use = 0; // state that rdy_pin not used
-  ads.last_reg = ADS1115_MAX_REGISTER_ADDR; // say that we accessed invalid register last
-  ads.changed = 1; // say we changed the configuration
+  ads.i2c_port = i2c_port; 
+  ads.address = address; 
+  ads.rdy_pin.in_use = 0; 
+  ads.last_reg = ADS1115_MAX_REGISTER_ADDR; 
+  ads.changed = 1; 
   ads.max_ticks = 10/portTICK_PERIOD_MS;
-  return ads; // return the completed configuration
+  return ads; 
 }
 
 void ads1115_set_mux(ads1115_t* ads, ads1115_mux_t mux) {
@@ -111,24 +111,24 @@ void ads1115_set_rdy_pin(ads1115_t* ads, gpio_num_t gpio) {
   gpio_config_t io_conf;
   esp_err_t err;
 
-  io_conf.intr_type = GPIO_INTR_NEGEDGE; // positive to negative (pulled down)
+  io_conf.intr_type = GPIO_INTR_NEGEDGE;
   io_conf.pin_bit_mask = 1<<gpio;
   io_conf.mode = GPIO_MODE_INPUT;
   io_conf.pull_up_en = 1;
   io_conf.pull_down_en = 0;
-  gpio_config(&io_conf); // set gpio configuration
+  gpio_config(&io_conf); 
 
   ads->rdy_pin.gpio_evt_queue = xQueueCreate(1, sizeof(bool));
   gpio_install_isr_service(0);
 
   ads->rdy_pin.in_use = 1;
   ads->rdy_pin.pin = gpio;
-  ads->config.bit.COMP_QUE = 0b00; // assert after one conversion
+  ads->config.bit.COMP_QUE = 0b00; 
   ads->changed = 1;
 
-  err = ads1115_write_register(ads, ADS1115_LO_THRESH_REGISTER_ADDR,0); // set lo threshold to minimum
+  err = ads1115_write_register(ads, ADS1115_LO_THRESH_REGISTER_ADDR,0); 
   if(err) ESP_LOGE(TAG,"could not set low threshold: %s",esp_err_to_name(err));
-  err = ads1115_write_register(ads, ADS1115_HI_THRESH_REGISTER_ADDR,0xFFFF); // set hi threshold to maximum
+  err = ads1115_write_register(ads, ADS1115_HI_THRESH_REGISTER_ADDR,0xFFFF); 
   if(err) ESP_LOGE(TAG,"could not set high threshold: %s",esp_err_to_name(err));
 }
 
@@ -157,14 +157,14 @@ int16_t ads1115_get_raw(ads1115_t* ads) {
   const static uint8_t len = 2;
   uint8_t data[2];
   esp_err_t err;
-  bool tmp; // temporary bool for reading from queue
+  bool tmp; 
 
   if(ads->rdy_pin.in_use) {
     gpio_isr_handler_add(ads->rdy_pin.pin, gpio_isr_handler, (void*)ads->rdy_pin.gpio_evt_queue);
     xQueueReset((QueueHandle_t)ads->rdy_pin.gpio_evt_queue);
   }
-  // see if we need to send configuration data
-  if((ads->config.bit.MODE==ADS1115_MODE_SINGLE) || (ads->changed)) { // if it's single-ended or a setting changed
+  
+  if((ads->config.bit.MODE==ADS1115_MODE_SINGLE) || (ads->changed)) { 
     err = ads1115_write_register(ads, ADS1115_CONFIG_REGISTER_ADDR, ads->config.reg);
     if(err) {
       ESP_LOGE(TAG,"could not write to device: %s",esp_err_to_name(err));
@@ -174,7 +174,7 @@ int16_t ads1115_get_raw(ads1115_t* ads) {
       }
       return 0;
     }
-    ads->changed = 0; // say that the data is unchanged now
+    ads->changed = 0; 
   }
 
   if(ads->rdy_pin.in_use) {
@@ -182,7 +182,7 @@ int16_t ads1115_get_raw(ads1115_t* ads) {
     gpio_isr_handler_remove(ads->rdy_pin.pin);
   }
   else {
-    // wait for 1 ms longer than the sampling rate, plus a little bit for rounding
+    
     vTaskDelay((((1000/sps[ads->config.bit.DR]) + 1) / portTICK_PERIOD_MS)+1);
   }
 
@@ -224,10 +224,6 @@ static esp_err_t i2c_master_init(void)
 
 void adc_log(void* pvParameters)
 {
-
-  // adc_setup();
-  //payload_t* payload = (payload_t*)pvParameters;
-
   ESP_ERROR_CHECK(i2c_master_init());
   ESP_LOGI(TAG, "I2C initialized successfully");
 
@@ -266,6 +262,8 @@ void adc_log(void* pvParameters)
 
   ESP_LOGI(TAG, "Initalization structures completed");
 
+  bool myflag1 = true;
+  bool myflag2 = true;
   
   while (1)
     {
@@ -281,12 +279,23 @@ void adc_log(void* pvParameters)
         vTaskDelay(pdMS_TO_TICKS(800));
         if (r1 > 80)
         {
-          buzzer_on();
+          myflag2 = true;
+          if (myflag1 == true)
+          {
+            buzzer_on();
+            myflag1 = false;
+          }
+          
         
         }
         else
         {
-          buzzer_off(); 
+          myflag1 = true;
+          if (myflag2 == true)
+          {
+            buzzer_off();
+            myflag2 = false;
+          } 
         }
 
         value2 = ads1115_get_raw(&ads2);
@@ -300,7 +309,7 @@ void adc_log(void* pvParameters)
 
         value3 = ads1115_get_raw(&ads3);
         ESP_LOGI(TAG, "count  is : %d", value3);
-        float vol3 = ads1115_get_voltage(&ads3);//optimize
+        float vol3 = ads1115_get_voltage(&ads3);
         ESP_LOGI(TAG, "voltage  is : %f", vol3);
         r3 = ((((133.21 * vol3) + 1491.05) / 32830.21) * 241);
         ((payload_t*)pvParameters)->sensor_data3 = r3;
@@ -309,7 +318,7 @@ void adc_log(void* pvParameters)
 
         value4 = ads1115_get_raw(&ads4);
         ESP_LOGI(TAG, "count  is : %d", value4);
-        float vol4 = ads1115_get_voltage(&ads4);//optimize
+        float vol4 = ads1115_get_voltage(&ads4);
         ESP_LOGI(TAG, "voltage  is : %f", vol4);
         r4 = vol4*(16/43);
         ((payload_t*)pvParameters)->sensor_data4 = r4;
