@@ -88,7 +88,7 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
 
                         vTaskDelay(500 / portTICK_PERIOD_MS);
                         sprintf(sensor_char5, "%g", payload.sensor_data5);
-                        esp_mqtt_client_publish(client, "/topic/qos1", sensor_char5, 0, 1, 0);
+                        esp_mqtt_client_publish(client, "/topic/mq2", sensor_char5, 0, 1, 0);
                         printf("Data sent5: %s", sensor_char5);
                         vTaskDelay(100 / portTICK_PERIOD_MS);
 
@@ -201,8 +201,8 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
 static void mqtt_app_start(void)
 {
     esp_mqtt_client_config_t mqtt_cfg = {
-        // .broker.address.uri = "mqtt://broker.hivemq.com:1883",
-        .broker.address.uri = "mqtt://192.168.43.206:1883"
+        .broker.address.uri = "mqtt://broker.hivemq.com:1883",
+        // .broker.address.uri = "mqtt://192.168.43.206:1883"
     };
     esp_mqtt_client_handle_t client = esp_mqtt_client_init(&mqtt_cfg);
     esp_mqtt_client_register_event(client, ESP_EVENT_ANY_ID, mqtt_event_handler, client);

@@ -314,7 +314,7 @@ void adc_log(void* pvParameters)
         r4 = vol4*(16/43);
         ((payload_t*)pvParameters)->sensor_data4 = r4;
         ESP_LOGI(TAG, "Light intensity value inside factory is : %f", r4);
-        vTaskDelay(pdMS_TO_TICKS(800));
+        vTaskDelay(pdMS_TO_TICKS(800)); //buzzr on when ligh intensity inside factory low
     }
 
 }

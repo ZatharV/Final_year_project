@@ -25,31 +25,17 @@ adc_cali_handle_t cali_handle;
 
 #define         MQ_PIN                       ADC1_CHANNEL_6     
 #define         RL_VALUE                     (5)     
-#define         RO_CLEAN_AIR_FACTOR          (9.83)  
-                                                     
-
-/***********************Software Related Macros************************************/
+#define         RO_CLEAN_AIR_FACTOR          (9.83)                                                       
 #define         CALIBARAION_SAMPLE_TIMES     (50)   
-#define         CALIBRATION_SAMPLE_INTERVAL  (500)   
-                                                     
+#define         CALIBRATION_SAMPLE_INTERVAL  (500)                                                        
 #define         READ_SAMPLE_INTERVAL         (50)    
-#define         READ_SAMPLE_TIMES            (5)      
-                                                     
-
-/**********************Application Related Macros**********************************/
+#define         READ_SAMPLE_TIMES            (5)                                                         
 #define         GAS_LPG                      (0)
 #define         GAS_CO                       (1)
 #define         GAS_SMOKE                    (2)
 
-/*****************************Globals***********************************************/
-float LPGCurve[3] = {2.3,0.21,-0.47};  
-                                                    
-                                                    
-                                                    
-float COCurve[3] = {2.3,0.72,-0.34};    
-                                                    
-                                                    
-                                                    
+float LPGCurve[3] = {2.3,0.21,-0.47};                                                                                                                                                          
+float COCurve[3] = {2.3,0.72,-0.34};                                                                                                                                                                
 float SmokeCurve[3] = {2.3,0.53,-0.44};    
                                                     
                                                     
@@ -155,7 +141,7 @@ static void battery_setup()
 	ESP_ERROR_CHECK(adc1_config_width(ADC_WIDTH_BIT_12));
 	ESP_ERROR_CHECK(adc1_config_channel_atten(ADC1_CHANNEL_6, ADC_ATTEN_DB_11));
 
-    Ro = MQCalibration(MQ_PIN);
+  Ro = MQCalibration(MQ_PIN);
 }
 
 static void battery_get_voltage_task(void* pvParameters)
@@ -167,10 +153,11 @@ static void battery_get_voltage_task(void* pvParameters)
         int16_t lpg = MQGetGasPercentage(MQRead(MQ_PIN)/Ro,GAS_LPG);
         int16_t co = MQGetGasPercentage(MQRead(MQ_PIN)/Ro,GAS_CO);
         int16_t smoke =  MQGetGasPercentage(MQRead(MQ_PIN)/Ro,GAS_SMOKE);
-        printf("lpg in ppm: %d\n", MQGetGasPercentage(MQRead(MQ_PIN)/Ro,GAS_LPG));
-        printf("CO in ppm: %d\n", MQGetGasPercentage(MQRead(MQ_PIN)/Ro,GAS_CO));
-        printf("gas smoke in ppm:  %d\n", MQGetGasPercentage(MQRead(MQ_PIN)/Ro,GAS_SMOKE));
-        ((payload_t*)pvParameters)->sensor_data5=(float)lpg;
+        ESP_LOGI(TAG,"lpg in ppm: %d\n", MQGetGasPercentage(MQRead(MQ_PIN)/Ro,GAS_LPG));
+        ESP_LOGI(TAG,"CO in ppm: %d\n", MQGetGasPercentage(MQRead(MQ_PIN)/Ro,GAS_CO));
+        ESP_LOGI(TAG,"gas smoke in ppm:  %d\n", MQGetGasPercentage(MQRead(MQ_PIN)/Ro,GAS_SMOKE));
+        ESP_LOGI(TAG,"Ananlog RAW READING FROM MQ2 : %d\n",adc1_get_raw(ADC1_CHANNEL_6));
+        ((payload_t*)pvParameters)->sensor_data5=(float)adc1_get_raw(ADC1_CHANNEL_6);
         ((payload_t*)pvParameters)->sensor_data6=(float)co;
         ((payload_t*)pvParameters)->sensor_data7=(float)smoke;
         if (smoke > 200)
