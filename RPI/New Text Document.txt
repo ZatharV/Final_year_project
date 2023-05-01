@@ -1,4 +1,0 @@
-https://learn.adafruit.com/adafruit-bme680-humidity-temperature-barometic-pressure-voc-gas/python-circuitpython
-
-https://gist.githubusercontent.com/anusornc/e719561cdeab4f0122c2/raw/c3240b8c84f89f8a09c96d19637102ba28cb6ebb/MQGetPercentage
-
