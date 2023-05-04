@@ -1,4 +1,4 @@
-/* * Data converted from D:/nipun prev laptop/final_year/idf_files/node_firmware/build/esp-idf/mbedtls/x509_crt_bundle
+/* * Data converted from D:/nipun prev laptop/final_year/new files/node_firmware/build/esp-idf/mbedtls/x509_crt_bundle
  */
 .data
 .section .rodata.embedded

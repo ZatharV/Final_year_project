@@ -6,7 +6,7 @@
 #include "actuator.h"
 #include "ads1115.h"
 
-#define LED_PIN 2
+#define LED_PIN 12
 #define MOTOR_PIN 4
 #define BUZZER 33
 static const char *TAG = "ACTUATORS";
