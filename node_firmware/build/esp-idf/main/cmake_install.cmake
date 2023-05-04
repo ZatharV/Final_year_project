@@ -1,4 +1,4 @@
-# Install script for directory: D:/nipun prev laptop/final_year/idf_files/node_firmware/main
+# Install script for directory: D:/nipun prev laptop/final_year/new files/node_firmware/main
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

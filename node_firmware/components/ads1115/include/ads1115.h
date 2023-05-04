@@ -108,6 +108,7 @@ typedef struct {
 } ads1115_t;
 
 // initialize device
+
 ads1115_t ads1115_config(i2c_port_t i2c_port, uint8_t address); // set up configuration
 
 // set configuration
