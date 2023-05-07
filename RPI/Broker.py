@@ -42,14 +42,14 @@ broker_port = "1883"
 
 def on_connect(client, userdata, flags, rc):
     print(f"mqtt client Connected ...")
-    client.subscribe("/topic/temperature")
-    client.subscribe("/topic/humidity")
-    client.subscribe("/topic/battery")
-    client.subscribe("/topic/light")
-    client.subscribe("/topic/lpg")
-    client.subscribe("/topic/co")
-    client.subscribe("/topic/smoke")
-    client.subscribe("/topic/motor")
+    client.subscribe("topic/temperature")
+    client.subscribe("topic/humidity")
+    client.subscribe("topic/battery")
+    client.subscribe("topic/light")
+    client.subscribe("topic/lpg")
+    client.subscribe("topic/co")
+    client.subscribe("topic/smoke")
+    client.subscribe("topic/motor")
 
 
 
