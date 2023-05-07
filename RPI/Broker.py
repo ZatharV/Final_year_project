@@ -1,8 +1,8 @@
 # subscriber.py
 import paho.mqtt.client as mqtt
 import time
-import board
-import adafruit_bme680
+# import board
+# import adafruit_bme680
 global message
 import requests
 import time
@@ -17,8 +17,11 @@ count = 0
 myMQTTClient = AWSIoTMQTTClient("ClientID")
 myMQTTClient.configureEndpoint("a8vv11hxsa5yb-ats.iot.ap-south-1.amazonaws.com", 8883)
 
-myMQTTClient.configureCredentials("/home/pi/Documents/RPI/AmazonRootCA1.pem", "/home/pi/Documents/RPI/aaec224321f9ead8b32b85efab57780338f9a33e0aec1b2a83001f5ad3b9b10c-private.pem.key", "/home/pi/Documents/RPI/aaec224321f9ead8b32b85efab57780338f9a33e0aec1b2a83001f5ad3b9b10c-certificate.pem.crt")
+# myMQTTClient.configureCredentials("/home/pi/Documents/RPI/AmazonRootCA1.pem", "/home/pi/Documents/RPI/aaec224321f9ead8b32b85efab57780338f9a33e0aec1b2a83001f5ad3b9b10c-private.pem.key", "/home/pi/Documents/RPI/aaec224321f9ead8b32b85efab57780338f9a33e0aec1b2a83001f5ad3b9b10c-certificate.pem.crt")
  
+myMQTTClient.configureCredentials("D:/nipun prev laptop/final_year/new files/RPI/AmazonRootCA1.pem", "D:/nipun prev laptop/final_year/new files/RPI/aaec224321f9ead8b32b85efab57780338f9a33e0aec1b2a83001f5ad3b9b10c-private.pem.key", "D:/nipun prev laptop/final_year/new files/RPI/aaec224321f9ead8b32b85efab57780338f9a33e0aec1b2a83001f5ad3b9b10c-certificate.pem.crt")
+
+
 print ('Initiating Realtime Data Transfer From Raspberry Pi...')
 
 {"LPG_CONCENTRATION":{"S":"-1"},"HUMIDITY":{"S":"2.35294"},"TEMPERATURE":{"S":"-50.7498"},"BATTERY_VOLTAGE":{"S":"10.9455"},"MOTOR":{"S":"0"},"CARBON_MONOXIDE":{"S":"-1"},"SMOKE":{"S":"sensor_char7"},"LIGHT_INTENSITY":{"S":"0"}}
@@ -58,49 +61,49 @@ def on_message(client, userdata, msg):
     print("message received on topic: " + msg.topic +  msg.payload.decode())
     topic = msg.topic
     
-    if topic == "/topic/temperature":
+    if topic == "topic/temperature":
         var1 = msg.payload.decode()
-        myMQTTClient.publish("/topic/temperature", var1, 1)
+        myMQTTClient.publish("topic/temperature", var1, 1)
         print("Received payload for topic1: ", var1)
         payload_dict['TEMPERATURE'] = var1
         count +=1
-    elif topic == "/topic/humidity":
+    elif topic == "topic/humidity":
         var2 = msg.payload.decode()
-        myMQTTClient.publish("/topic/humidity", var2, 1)
+        myMQTTClient.publish("topic/humidity", var2, 1)
         print("Received payload for topic2: ", var2)
         payload_dict['HUMIDITY'] = var2
         count +=1
-    elif topic == "/topic/battery":
+    elif topic == "topic/battery":
         var3 = msg.payload.decode()
         myMQTTClient.publish("/topic/battery", var3, 1)
         print("Received payload for topic3: ", var3)
         payload_dict['BATTERY_VOLTAGE'] = var3
         count +=1
-    elif topic == "/topic/light":
+    elif topic == "topic/light":
         var4 = msg.payload.decode()
         myMQTTClient.publish("/topic/light", var4, 1)
         print("Received payload for topic4: ", var4)
         payload_dict['LIGHT_INTENSITY'] = var4
         count +=1
-    elif topic == "/topic/lpg":
+    elif topic == "topic/lpg":
         var5 = msg.payload.decode()
         myMQTTClient.publish("/topic/lpg", var5, 1)
         print("Received payload for topic5: ", var5)
         payload_dict['LPG_CONCENTRATION'] = var5
         count +=1
-    elif topic == "/topic/co":
+    elif topic == "topic/co":
         var6 = msg.payload.decode()
         myMQTTClient.publish("/topic/co", var6, 1)
         print("Received payload for topic6: ", var6)
         payload_dict['CARBON_MONOXIDE'] = var6
         count +=1
-    elif topic == "/topic/smoke":
+    elif topic == "topic/smoke":
         var7 = msg.payload.decode()
         myMQTTClient.publish("/topic/smoke", var7, 1)
         print("Received payload for topic7: ", var7)
         payload_dict['SMOKE'] = var7
         count +=1
-    elif topic == "/topic/motor":
+    elif topic == "topic/motor":
         var8 = msg.payload.decode()
         myMQTTClient.publish("/topic/motor", var8, 1)
         print("Received payload for topic8: ", var8)
