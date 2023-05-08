@@ -67,45 +67,45 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
                         blink_led();
                         vTaskDelay(500 / portTICK_PERIOD_MS);
                         sprintf(sensor_char1, "%g", payload.sensor_data1);
-                        esp_mqtt_client_publish(client, "/topic/temperature", sensor_char1, 0, 1, 0);
+                        esp_mqtt_client_publish(client, "topic/temperature", sensor_char1, 0, 1, 0);
                         printf("Data sent1: %s", sensor_char1 );
 
                         vTaskDelay(500 / portTICK_PERIOD_MS);
                         sprintf(sensor_char2, "%g", payload.sensor_data2);
-                        esp_mqtt_client_publish(client, "/topic/humidity", sensor_char2, 0, 1, 0);
+                        esp_mqtt_client_publish(client, "topic/humidity", sensor_char2, 0, 1, 0);
                         printf("Data sent2: %s", sensor_char2 );
 
                         vTaskDelay(500 / portTICK_PERIOD_MS);
                         sprintf(sensor_char3, "%g", payload.sensor_data3);
-                        esp_mqtt_client_publish(client, "/topic/battery", sensor_char3, 0, 1, 0);
+                        esp_mqtt_client_publish(client, "topic/battery", sensor_char3, 0, 1, 0);
                         printf("Data sent3: %s", sensor_char3);
 
                         vTaskDelay(500 / portTICK_PERIOD_MS);
                         sprintf(sensor_char4, "%g", payload.sensor_data4);
-                        esp_mqtt_client_publish(client, "/topic/light", sensor_char4, 0, 1, 0);
+                        esp_mqtt_client_publish(client, "topic/light", sensor_char4, 0, 1, 0);
                         printf("Data sent4: %s", sensor_char4);
 
                         vTaskDelay(500 / portTICK_PERIOD_MS);
                         sprintf(sensor_char5, "%g", payload.sensor_data5);
-                        esp_mqtt_client_publish(client, "/topic/lpg", sensor_char5, 0, 1, 0);
+                        esp_mqtt_client_publish(client, "topic/lpg", sensor_char5, 0, 1, 0);
                         printf("Data sent5: %s", sensor_char5);
                         vTaskDelay(100 / portTICK_PERIOD_MS);
 
                         vTaskDelay(500 / portTICK_PERIOD_MS);
                         sprintf(sensor_char6, "%g", payload.sensor_data6);
-                        esp_mqtt_client_publish(client, "/topic/co", sensor_char6, 0, 1, 0);
+                        esp_mqtt_client_publish(client, "topic/co", sensor_char6, 0, 1, 0);
                         printf("Data sent6: %s", sensor_char6);
                         vTaskDelay(100 / portTICK_PERIOD_MS);
 
                         vTaskDelay(500 / portTICK_PERIOD_MS);
                         sprintf(sensor_char7, "%g", payload.sensor_data7);
-                        esp_mqtt_client_publish(client, "/topic/smoke", "sensor_char7", 0, 1, 0);
+                        esp_mqtt_client_publish(client, "topic/smoke", "sensor_char7", 0, 1, 0);
                         printf("Data sent7: %s", sensor_char7);
                         vTaskDelay(100 / portTICK_PERIOD_MS);
 
                         vTaskDelay(500 / portTICK_PERIOD_MS);
                         sprintf(sensor_char8, "%g", payload.sensor_data8);
-                        esp_mqtt_client_publish(client, "/topic/motor", sensor_char8, 0, 1, 0);
+                        esp_mqtt_client_publish(client, "topic/motor", sensor_char8, 0, 1, 0);
                         printf("Data sent8: %s", sensor_char8);
                         vTaskDelay(100 / portTICK_PERIOD_MS);
                     }
