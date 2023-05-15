@@ -19,9 +19,9 @@ myMQTTClient.configureEndpoint("a8vv11hxsa5yb-ats.iot.ap-south-1.amazonaws.com",
 myMQTTClient.configureCredentials("D:/nipun prev laptop/final_year/Project scripts/AWS Write/AmazonRootCA1.pem", "D:/nipun prev laptop/final_year/Project scripts/AWS Write/aaec224321f9ead8b32b85efab57780338f9a33e0aec1b2a83001f5ad3b9b10c-private.pem.key", "D:/nipun prev laptop/final_year/Project scripts/AWS Write/aaec224321f9ead8b32b85efab57780338f9a33e0aec1b2a83001f5ad3b9b10c-certificate.pem.crt")
 
 
-print ('Initiating Realtime Data Transfer From Raspberry Pi...')
+print ('Initiating Realtime Data Transfer From Remote ...')
 
-{"LPG_CONCENTRATION":{"S":"-1"},"HUMIDITY":{"S":"2.35294"},"TEMPERATURE":{"S":"-50.7498"},"BATTERY_VOLTAGE":{"S":"10.9455"},"MOTOR":{"S":"0"},"CARBON_MONOXIDE":{"S":"-1"},"SMOKE":{"S":"sensor_char7"},"LIGHT_INTENSITY":{"S":"0"}}
+# {"LPG_CONCENTRATION":{"S":"-1"},"HUMIDITY":{"S":"2.35294"},"TEMPERATURE":{"S":"-50.7498"},"BATTERY_VOLTAGE":{"S":"10.9455"},"MOTOR":{"S":"0"},"CARBON_MONOXIDE":{"S":"-1"},"SMOKE":{"S":"sensor_char7"},"LIGHT_INTENSITY":{"S":"0"}}
 
 Myvar= myMQTTClient.connect()
 
