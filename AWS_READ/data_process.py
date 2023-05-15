@@ -8,9 +8,9 @@ def average(s):
     for i in range(o):
         parsed_dict = json.loads(s[i].replace("'", "\""))
         if 'N' in parsed_dict:
-            sum = sum + int(parsed_dict['N'])
+            sum = sum + float(parsed_dict['N'])
         else:
-            sum = sum + int(parsed_dict['S'])
+            sum = sum + float(parsed_dict['S'])
 
     avg = sum/o
     return avg
