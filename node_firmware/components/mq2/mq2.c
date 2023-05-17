@@ -44,7 +44,7 @@ float Ro = 10;
 
 float MQResistanceCalculation(int raw_adc)
 {
-  return ( ((float)RL_VALUE*(1023-raw_adc)/raw_adc));
+  return ( ((float)RL_VALUE*(1023-raw_adc)/raw_adc)); //4095
 }
 
 float MQCalibration(int mq_pin)
@@ -110,7 +110,7 @@ static void battery_setup()
     adc_cali_line_fitting_config_t cali_config = {
         .unit_id = ADC_UNIT_1,
         .atten = ADC_ATTEN_DB_11,
-        .bitwidth = ADC_WIDTH_BIT_12,
+        .bitwidth = ADC_WIDTH_BIT_10,
     };
 
     
@@ -125,15 +125,15 @@ static void battery_setup()
     {
 
         ESP_LOGE(TAG,"The calibration mode is not supported in eFuse: %s",esp_err_to_name(err));
-        esp_adc_cal_characterize(ADC_UNIT_1, ADC_ATTEN_DB_11 , ADC_WIDTH_BIT_12, ESP_ADC_CAL_VAL_DEFAULT_VREF, &adc_chars);
+        esp_adc_cal_characterize(ADC_UNIT_1, ADC_ATTEN_DB_11 , ADC_WIDTH_BIT_10, ESP_ADC_CAL_VAL_DEFAULT_VREF, &adc_chars);
     }
     else
     {
         
-        esp_adc_cal_characterize(ADC_UNIT_1, ADC_ATTEN_DB_11 , ADC_WIDTH_BIT_12, ESP_ADC_CAL_VAL_EFUSE_VREF, &adc_chars);
+        esp_adc_cal_characterize(ADC_UNIT_1, ADC_ATTEN_DB_11 , ADC_WIDTH_BIT_10, ESP_ADC_CAL_VAL_EFUSE_VREF, &adc_chars);
 		ESP_LOGE(TAG,"The calibration mode is supported in eFuse ");
     }
-	ESP_ERROR_CHECK(adc1_config_width(ADC_WIDTH_BIT_12));
+	ESP_ERROR_CHECK(adc1_config_width(ADC_WIDTH_BIT_10));
 	ESP_ERROR_CHECK(adc1_config_channel_atten(ADC1_CHANNEL_6, ADC_ATTEN_DB_11));
 
   Ro = MQCalibration(MQ_PIN);
