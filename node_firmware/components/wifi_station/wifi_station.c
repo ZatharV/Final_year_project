@@ -15,8 +15,8 @@
 
 bool MY_FLAG = false;
 
-#define WIFI_SSID      "Atharv More"
-#define WIFI_PASS      "gafo4325"
+#define WIFI_SSID       "Messi" //"Atharv More"
+#define WIFI_PASS      "mmmmmmmm"
 #define EXAMPLE_ESP_MAXIMUM_RETRY  5
 
 #if CONFIG_ESP_WIFI_AUTH_OPEN

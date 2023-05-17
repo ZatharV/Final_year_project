@@ -235,6 +235,8 @@ void adc_log(void* pvParameters)
 
   bool myflag1 = true;
   bool myflag2 = true;
+  bool myflag3 = true;
+  bool myflag4 = true;
   double vol0;
   double vol1;
   double vol2;
@@ -265,7 +267,24 @@ void adc_log(void* pvParameters)
         res = vol1*5e4/(10-5*vol1);
         r1 = LUX_CALC_SCALAR * pow(res, LUX_CALC_EXPONENT);
         ESP_LOGI(TAG, "Light intensity value inside factory is : %f", r1);
-
+        if (r1 < 200)
+        {
+          myflag2 = true;
+          if (myflag1 == true)
+          {
+            buzzer_on();
+            myflag1 = false;
+          }
+        }
+        else
+        {
+          myflag1 = true;
+          if (myflag2 == true)
+          {
+            buzzer_off();
+            myflag2 = false;
+          } 
+        }
         vTaskDelay(pdMS_TO_TICKS(1000));
 
         
@@ -276,24 +295,24 @@ void adc_log(void* pvParameters)
         ((payload_t*)pvParameters)->sensor_data1 = r2;
         ESP_LOGI(TAG, "Temperature value  is : %f", r2);
         vTaskDelay(pdMS_TO_TICKS(1000));
-         if (r2 > 80)
+        if (r2 > 80)
         {
-          myflag2 = true;
-          if (myflag1 == true)
+          myflag4 = true;
+          if (myflag3 == true)
           {
             buzzer_on();
-            myflag1 = false;
+            myflag3 = false;
           }
           
         
         }
         else
         {
-          myflag1 = true;
-          if (myflag2 == true)
+          myflag3 = true;
+          if (myflag4 == true)
           {
             buzzer_off();
-            myflag2 = false;
+            myflag4 = false;
           } 
         }
 
