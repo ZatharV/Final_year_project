@@ -2,8 +2,8 @@ import boto3
 import pandas as pd
 import time
 
-aws_access_key_id = 'AKIATYVWQFBJREGXXM72'
-aws_secret_access_key = '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'
+aws_access_key_id = ''
+aws_secret_access_key = ''
 aws_region = 'ap-south-1'
 
 dynamodb = boto3.client('dynamodb',
